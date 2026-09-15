@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satyajit Samanta - Resume / Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4338ca;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --badge-bg: #f1f5f9;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: var(--text);
+      line-height: 1.5;
+      padding: 30px 15px;
+    }
+    .resume-container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.07);
+    }
+    .header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #0f172a;
+    }
+    .header .subtitle {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-top: 2px;
+    }
+    .header .meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .contact-info {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: right;
+    }
+    .contact-info a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .section {
+      margin-bottom: 22px;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #0f172a;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .objective-box {
+      background: #f8fafc;
+      border-left: 3px solid var(--primary);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .item {
+      margin-bottom: 14px;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .item-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .item-tag {
+      font-size: 11px;
+      font-family: 'Fira Code', monospace;
+      color: var(--primary-dark);
+      background: #eef2ff;
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+    .item-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .item-desc {
+      font-size: 12.5px;
+      color: #334155;
+      margin-top: 4px;
+      line-height: 1.55;
+    }
+    ul.item-bullets {
+      margin-top: 5px;
+      padding-left: 18px;
+      font-size: 12.5px;
+      color: #334155;
+    }
+    ul.item-bullets li {
+      margin-bottom: 3px;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 10px;
+      font-size: 12.5px;
+    }
+    .skill-category {
+      background: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .skill-category strong {
+      color: #0f172a;
+    }
+    .print-actions {
+      max-width: 820px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn {
+      background: #4f46e5;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #4338ca;
+    }
+    .btn-secondary {
+      background: #ffffff;
+      color: #334155;
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: #f1f5f9;
+    }
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .resume-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .print-actions {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-actions">
+    <a href="/" class="btn btn-secondary">← Back to Portfolio Nexus</a>
+    <button onclick="window.print()" class="btn">🖨️ Print or Save as PDF</button>
+  </div>
+
+  <div class="resume-container">
+    
+    <!-- Top Header -->
+    <header class="header">
+      <div>
+        <h1>SATYAJIT SAMANTA</h1>
+        <div class="subtitle">B.Tech in Computer Science & Engineering (CSE)</div>
+        <div class="meta">Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU)</div>
+        <div class="meta">Batch: 2023–2027 | 4th Year (Sem 7) | Roll No: <strong>23DGITM425</strong></div>
+      </div>
+      <div class="contact-info">
+        <div>📞 +91 8076522382</div>
+        <div>✉️ <a href="mailto:satyajit97531@gmail.com">satyajit97531@gmail.com</a></div>
+        <div>📍 Janakpuri / Sagarpur, New Delhi, India</div>
+        <div style="margin-top: 4px;">
+          <a href="https://github.com/satyajit97531" target="_blank">GitHub</a> · 
+          <a href="https://www.linkedin.com/in/satyajit-samanta-07a461385/" target="_blank">LinkedIn</a> · 
+          <a href="https://leetcode.com/u/satyajitzzzzz/" target="_blank">LeetCode</a> · 
+          <a href="https://codeforces.com/profile/satyajitzzz" target="_blank">Codeforces</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Career Objective -->
+    <section class="section">
+      <div class="section-title">Career Objective</div>
+      <div class="objective-box">
+        "Motivated B.Tech Computer Science student with a strong foundation in Full Stack Development (MERN, Next.js), Ollama AI integration, and iOS app development. Seeking an engineering or internship opportunity to build scalable, secure, and user-centric web & mobile solutions."
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+      <div class="section-title">Education</div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Bachelor of Technology (B.Tech) - Computer Science & Engineering</div>
+          <div class="item-tag">2023 – 2027 (Ongoing)</div>
+        </div>
+        <div class="item-sub">Delhi Global Institute of Technology (DGIT) / MERI · Maharshi Dayanand University (MDU), Haryana</div>
+        <div class="item-desc">Semester: 7th | Roll No: <strong>23DGITM425</strong> | Core: Data Structures, Analysis of Algorithms, Database Management (DBMS), Operating Systems, Computer Networks.</div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Senior Secondary & Secondary Education (CBSE)</div>
+          <div class="item-tag">Completed</div>
+        </div>
+        <div class="item-sub">Vinay Nagar Senior Secondary School, New Delhi</div>
+        <div class="item-desc">Science Stream (Mathematics, Physics, Chemistry, Computer Fundamentals).</div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section">
+      <div class="section-title">Key Technical Projects</div>
+
+      <!-- Major Project -->
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Service Portal Application (Major Project)</div>
+          <div class="item-tag">MERN + Ollama Local AI</div>
+        </div>
+        <div class="item-sub">GitHub: <a href="https://github.com/satyajit97531/Service_Portal" target="_blank">github.com/satyajit97531/Service_Portal</a></div>
+        <div class="item-desc">Full-stack health monitoring and diagnostic consultation ecosystem with on-premise localized Ollama LLM assistant.</div>
+        <ul class="item-bullets">
+          <li>Architected MERN platform with secure JWT user authentication and MongoDB document schemas.</li>
+          <li>Integrated localized Ollama AI chatbot to provide instant private health consultation without external cloud API fees or data leaks.</li>
+          <li>Implemented interactive data visualizers for tracking real-time biometric vitals and BMI trends.</li>
+        </ul>
+      </div>
+
+      <!-- Minor Project -->
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Games 24 (Minor Project)</div>
+          <div class="item-tag">Figma UI/UX & Prototyping</div>
+        </div>
+        <div class="item-sub">High-Fidelity Game Storefront Platform (Steam & Epic Games Inspired)</div>
+        <ul class="item-bullets">
+          <li>Designed comprehensive dark-mode gaming storefront with atomic component library in Figma.</li>
+          <li>Constructed streamlined 2-step checkout flow, categorized genre carousels, and responsive viewports.</li>
+        </ul>
+      </div>
+
+      <!-- Medi_Map -->
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Medi_Map</div>
+          <div class="item-tag">React, Leaflet, Node.js</div>
+        </div>
+        <div class="item-sub">GitHub: <a href="https://github.com/satyajit97531/Medi_Map" target="_blank">github.com/satyajit97531/Medi_Map</a></div>
+        <div class="item-desc">Geospatial medical facility locator for instant clinic, emergency center, and specialty routing.</div>
+      </div>
+
+      <!-- AuraSpace -->
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">AuraSpace & Product_Store</div>
+          <div class="item-tag">TypeScript, React, Node.js, Express</div>
+        </div>
+        <div class="item-sub">GitHub: <a href="https://github.com/satyajit97531/AuraSpace" target="_blank">github.com/satyajit97531/AuraSpace</a></div>
+        <div class="item-desc">Modular TypeScript collaborative workspace and reactive e-commerce product catalog with instant CRUD APIs.</div>
+      </div>
+    </section>
+
+    <!-- Industry Training & Certification -->
+    <section class="section">
+      <div class="section-title">Industry Training & Certifications</div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">iOS Application Development Certification</div>
+          <div class="item-tag">June – August 2024 (8 Weeks)</div>
+        </div>
+        <div class="item-sub"><a href="https://sklztect.com/" target="_blank" rel="noopener noreferrer" style="color: #4f46e5; text-decoration: underline;">SKLZ TECT LLP (sklztect.com)</a> · Conducted at Management Education & Research Institute (MERI), New Delhi</div>
+        <div class="item-desc">Credential ID: <strong>SKLZ-TECT-IOS-2024-SAMANTA</strong> | Certificate Awarded: August 14, 2024</div>
+        <ul class="item-bullets">
+          <li>Completed 8-week intensive corporate training & internship in native iOS development using Swift and Xcode.</li>
+          <li>Translated high-fidelity Figma UI/UX wireframes into functional, responsive iOS view hierarchies.</li>
+          <li>Mastered MVC architecture, memory management, navigation controllers, and Apple Human Interface Guidelines.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="section">
+      <div class="section-title">Technical Skills & Arsenal</div>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <strong>Full-Stack Development:</strong><br>
+          React 19, Node.js, Express.js, MongoDB, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS, REST APIs
+        </div>
+        <div class="skill-category">
+          <strong>Mobile & AI Engineering:</strong><br>
+          Swift, iOS Development, Xcode, Ollama Local AI (Llama/Mistral inference), JWT Authentication
+        </div>
+        <div class="skill-category">
+          <strong>Design & Tools:</strong><br>
+          Figma UI/UX, Component Systems, Wireframing, Git, GitHub, VS Code, Leaflet Geospatial
+        </div>
+        <div class="skill-category">
+          <strong>Algorithmic & Competitive:</strong><br>
+          Data Structures & Algorithms, LeetCode (@satyajitzzzzz, 150+ Solved), Codeforces (@satyajitzzz)
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
