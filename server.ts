@@ -137,6 +137,9 @@ let lastCheckTime = 0;
 
 async function checkMongoConnection(): Promise<boolean> {
   if (isMongoClusterConnected) return true;
+  if (!process.env.DATABASE_URL || process.env.DATABASE_URL.trim() === "") {
+    return false;
+  }
 
   // Debounce failed checks by 5 seconds to avoid spamming timeouts
   const now = Date.now();
