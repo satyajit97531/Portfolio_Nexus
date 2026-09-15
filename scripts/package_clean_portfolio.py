@@ -52,7 +52,7 @@ def create_clean_portfolio_zip():
 
 Full-Stack Developer | MERN & Local AI Systems | iOS Developer
 B.Tech Computer Science & Engineering · Roll No: 23DGITM425
-Delhi Global Institute of Technology (DGIT) / MERI · Maharshi Dayanand University (MDU)
+Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU)
 
 ## 🚀 Quick Start Guide
 

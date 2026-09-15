@@ -9,7 +9,8 @@ import {
   Layers,
   Sparkles,
   ShieldAlert,
-  ArrowRight
+  ArrowRight,
+  Database
 } from 'lucide-react';
 import { Project } from '../types';
 
@@ -123,6 +124,28 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 ))}
               </div>
             </div>
+
+            {/* Data Models & Training / Creation Volume */}
+            {(project.dataModel || project.dataVolumeNumeral) && (
+              <div className="space-y-2.5 bg-violet-950/20 p-4 rounded-xl border border-violet-500/25">
+                <h3 className="text-xs font-mono text-violet-300 uppercase tracking-wider flex items-center gap-1.5 font-bold">
+                  <Database className="w-3.5 h-3.5 text-violet-400" />
+                  <span>Data Models & Training / Creation Datasets</span>
+                </h3>
+                {project.dataVolumeNumeral && (
+                  <div className="text-xs font-mono bg-violet-500/10 text-emerald-300 border border-violet-500/20 px-3 py-2 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 animate-pulse" />
+                    <span><strong>Numerals / Dataset Scale:</strong> {project.dataVolumeNumeral}</span>
+                  </div>
+                )}
+                {project.dataModel && (
+                  <div className="text-xs text-slate-300 pt-0.5 leading-relaxed">
+                    <span className="font-mono text-slate-400 font-medium">Schema Architecture: </span>
+                    <span>{project.dataModel}</span>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Technical Stack Breakdown */}
             {project.techStackDetailed && (

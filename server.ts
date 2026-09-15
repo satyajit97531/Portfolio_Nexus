@@ -329,10 +329,36 @@ app.post("/api/dispatch", async (req, res) => {
   }
 });
 
-// Delete a message by ID (for buffer management)
+const ADMIN_PASSKEY = process.env.ADMIN_KEY || "satya@2026";
+
+// Verify admin passkey for owner access
+app.post("/api/admin/verify", (req, res) => {
+  const { passkey } = req.body;
+  if (!passkey) {
+    return res.status(400).json({ success: false, error: "Passkey is required" });
+  }
+  if (passkey === ADMIN_PASSKEY) {
+    return res.json({ success: true, message: "Owner access verified" });
+  }
+  return res.status(401).json({ success: false, error: "Invalid owner passkey" });
+});
+
+// Delete a message by ID (strictly protected for portfolio owner)
 app.delete("/api/dispatch/:id", async (req, res) => {
   try {
     const { id } = req.params;
+    const providedKey =
+      (req.headers["x-admin-key"] as string) ||
+      (req.query.adminKey as string) ||
+      (req.body && req.body.adminKey);
+
+    if (!providedKey || providedKey !== ADMIN_PASSKEY) {
+      return res.status(403).json({
+        success: false,
+        error: "Unauthorized: Only Satyajit (portfolio owner) is authorized to delete messages from MongoDB Atlas.",
+      });
+    }
+
     const connected = await checkMongoConnection();
 
     if (connected) {
@@ -343,11 +369,12 @@ app.delete("/api/dispatch/:id", async (req, res) => {
           if (ObjectId.isValid(id)) {
             filter = { $or: [{ _id: new ObjectId(id) }, { _id: id }] };
           }
-          await coll.deleteOne(filter);
+          const deleteResult = await coll.deleteOne(filter);
           return res.json({
             success: true,
             database: "MongoDB (NoSQL)",
             message: "Document deleted from MongoDB Atlas",
+            deletedCount: deleteResult.deletedCount,
           });
         }
       } catch (delErr: any) {

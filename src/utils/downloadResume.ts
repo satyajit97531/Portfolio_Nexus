@@ -67,7 +67,7 @@ export function generateClientSidePdf(): void {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8.5);
   doc.setTextColor(100, 116, 139);
-  doc.text('Delhi Global Institute of Technology (DGIT) / MERI · Maharshi Dayanand University (MDU) | Roll: 23DGITM425', margin, y);
+  doc.text('Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU) | Roll: 23DGITM425', margin, y);
 
   y += 12;
   doc.setFont('helvetica', 'normal');
@@ -77,7 +77,7 @@ export function generateClientSidePdf(): void {
 
   y += 10;
   doc.setTextColor(79, 70, 229);
-  doc.text('LeetCode: leetcode.com/u/satyajitzzzzz (50+ Solved: 30E/15M/5H)  |  Codeforces: codeforces.com/profile/satyajitzzz (35+ Solved: Greedy & Implementation)', margin, y);
+  doc.text('LeetCode: leetcode.com/u/satyajitzzzzz (50+ Solved: 30E/15M/5H)  |  Codeforces: codeforces.com/profile/satyajitzzz (35+ Problems Solved)', margin, y);
 
   y += 12;
   doc.setDrawColor(226, 232, 240);
@@ -121,10 +121,23 @@ export function generateClientSidePdf(): void {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
   doc.setTextColor(100, 116, 139);
-  doc.text('Delhi Global Institute of Technology (DGIT) / MERI · Maharshi Dayanand University (MDU) | Roll: 23DGITM425', margin, y);
+  doc.text('Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU) | Roll: 23DGITM425', margin, y);
   y += 9;
   doc.setTextColor(30, 41, 59);
   doc.text('• Core Coursework: Data Structures & Algorithms, OOP, Database Systems, Computer Networks, Operating Systems.', margin + 6, y);
+  y += 14;
+
+  // Technical Skills & Problem Solving (Directly Under Education)
+  addHeading('Technical Skills & Problem Solving');
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8);
+  doc.text('Full-Stack: Next.js (App Router, SSR), React 19, Node.js, Express.js, MongoDB, TypeScript, JavaScript, Tailwind CSS', margin, y);
+  y += 10;
+  doc.text('Mobile & AI: iOS Development (Swift, Xcode, UIKit), Local Ollama AI (Llama, Mistral), JWT Authentication', margin, y);
+  y += 10;
+  doc.text('Problem Solving: LeetCode (@satyajitzzzzz, 50+ Solved: 30 Easy, 15 Med, 5 Hard), Codeforces (@satyajitzzz, 35+ Problems Solved), DSA Intermediate', margin, y, { maxWidth: pageWidth - margin * 2 });
+  y += 11;
+  doc.text('Tools & Design: Figma UI/UX Prototyping, Git, GitHub, VS Code, Postman, Leaflet Maps, REST APIs', margin, y);
   y += 14;
 
   // Projects
@@ -135,9 +148,9 @@ export function generateClientSidePdf(): void {
   y += 10;
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
-  doc.text('• Diagnostic healthcare web platform with private local AI consultations via Ollama (Llama/Mistral) & zero external API telemetry.', margin + 6, y);
+  doc.text('• Diagnostic healthcare platform with local Ollama AI trained/prompt-engineered with 45+ medical Q&A pairs.', margin + 6, y);
   y += 9;
-  doc.text('• Implemented secure JWT auth, MongoDB document clustering, and interactive biometric vitals & BMI tracking.', margin + 6, y);
+  doc.text('• Modeled 5 MongoDB document schemas managing 60+ synthetic biometric telemetry records (BMI, blood pressure, glucose).', margin + 6, y);
   y += 12;
 
   doc.setFont('helvetica', 'bold');
@@ -146,7 +159,7 @@ export function generateClientSidePdf(): void {
   y += 10;
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
-  doc.text('• Designed an immersive dark-mode digital gaming distribution storefront with 2-step checkout flow & atomic component library.', margin + 6, y);
+  doc.text('• Modeled 40+ game title catalog items, 12 genre taxonomies, and 35+ design tokens with a 2-step checkout flow.', margin + 6, y);
   y += 12;
 
   doc.setFont('helvetica', 'bold');
@@ -155,7 +168,7 @@ export function generateClientSidePdf(): void {
   y += 10;
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
-  doc.text('• Real-time geospatial hospital/clinic routing with Leaflet, plus collaborative workspace management with full REST APIs.', margin + 6, y);
+  doc.text('• Modeled 50+ clinic geo-points, 25+ emergency centers, and TypeScript workspace schemas with 50+ document nodes.', margin + 6, y);
   y += 14;
 
   // Certifications
@@ -173,19 +186,6 @@ export function generateClientSidePdf(): void {
   y += 9;
   doc.setTextColor(30, 41, 59);
   doc.text('• Specialized training in Swift, Xcode, iOS SDK, UIKit AutoLayout, and Apple Human Interface Guidelines.', margin + 6, y);
-  y += 14;
-
-  // Skills
-  addHeading('Technical Skills');
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(8);
-  doc.text('Full-Stack: Next.js (App Router, SSR), React 19, Node.js, Express.js, MongoDB, TypeScript, JavaScript, Tailwind CSS', margin, y);
-  y += 10;
-  doc.text('Mobile & AI: iOS Development (Swift, Xcode, UIKit), Local Ollama AI (Llama, Mistral), JWT Authentication', margin, y);
-  y += 10;
-  doc.text('Problem Solving: LeetCode (50+ Solved: 30 Easy, 15 Med, 5 Hard, @satyajitzzzzz), Codeforces (35+ Solved: Greedy & Implementation, @satyajitzzz)', margin, y);
-  y += 10;
-  doc.text('Tools: Figma UI/UX Prototyping, Git, GitHub, VS Code, Postman, Leaflet Maps', margin, y);
 
   doc.save('Satyajit_Samanta_Resume.pdf');
 }

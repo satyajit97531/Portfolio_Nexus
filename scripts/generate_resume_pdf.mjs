@@ -55,7 +55,7 @@ doc.text(contactLine, margin, y);
 y += 10;
 doc.setFontSize(8);
 doc.setTextColor(...accentColor);
-doc.text('LeetCode: leetcode.com/u/satyajitzzzzz (50+ Solved: 30E/15M/5H)  |  Codeforces: codeforces.com/profile/satyajitzzz (Rating: 1184)', margin, y);
+doc.text('LeetCode: leetcode.com/u/satyajitzzzzz (50+ Solved: 30E/15M/5H)  |  Codeforces: codeforces.com/profile/satyajitzzz (35+ Problems Solved)', margin, y);
 
 // Divider
 y += 10;
@@ -106,7 +106,7 @@ y += 10;
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(8);
 doc.setTextColor(...textMuted);
-doc.text('Delhi Global Institute of Technology (DGIT) / MERI · Maharshi Dayanand University (MDU), Haryana', margin, y);
+doc.text('Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU), Haryana', margin, y);
 
 y += 9;
 doc.setFont('helvetica', 'normal');
@@ -137,7 +137,32 @@ doc.setTextColor(...textDark);
 doc.text('• Science Stream (Physics, Chemistry, Mathematics, Computer Science Fundamentals).', margin + 6, y);
 y += 14;
 
-// 3. TECHNICAL PROJECTS
+// 3. TECHNICAL SKILLS & PROBLEM SOLVING (Directly Under Education)
+drawSectionHeader('Technical Skills & Problem Solving');
+
+function printSkillRow(category, skills) {
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(8.5);
+  doc.setTextColor(...accentColor);
+  doc.text(category + ':', margin, y);
+  
+  const catWidth = doc.getTextWidth(category + ': ') + 4;
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8.5);
+  doc.setTextColor(...textDark);
+  const maxSkillWidth = pageWidth - margin - (margin + catWidth);
+  const lines = doc.splitTextToSize(skills, maxSkillWidth);
+  doc.text(lines, margin + catWidth, y);
+  y += lines.length > 1 ? (lines.length * 9.5 + 2) : 11;
+}
+
+printSkillRow('Full-Stack', 'Next.js (App Router, SSR), React 19, Node.js, Express.js, MongoDB, TypeScript, JavaScript, Tailwind CSS');
+printSkillRow('Mobile & AI', 'Swift, Xcode, iOS SDK (MVC, AutoLayout), Local Ollama AI (Llama, Mistral), JWT Authentication');
+printSkillRow('Problem Solving', 'LeetCode (@satyajitzzzzz, 50+ Solved: 30 Easy, 15 Med, 5 Hard), Codeforces (@satyajitzzz, 35+ Problems Solved), DSA Intermediate');
+printSkillRow('Tools & Design', 'Figma UI/UX Prototyping, Git, GitHub, VS Code, Postman, Leaflet Maps, REST APIs');
+y += 3;
+
+// 4. TECHNICAL PROJECTS
 drawSectionHeader('Technical Projects');
 
 // Project 1: Service Portal
@@ -155,11 +180,11 @@ y += 10;
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(8);
 doc.setTextColor(...textDark);
-doc.text('• Architected full-stack diagnostic portal featuring private on-device LLM consultations via Ollama (Llama/Mistral).', margin + 6, y);
+doc.text('• Architected full-stack portal with on-premise Ollama AI trained/conditioned with 45+ medical Q&A pairs.', margin + 6, y);
 y += 9;
-doc.text('• Implemented secure JWT authentication, MongoDB document clustering, and interactive biometric vitals & BMI tracking.', margin + 6, y);
+doc.text('• Modeled 5 MongoDB document schemas managing 60+ synthetic biometric telemetry records & vital trend histories.', margin + 6, y);
 y += 9;
-doc.text('• Eliminates recurring cloud AI API costs and guarantees zero external medical data transmission.', margin + 6, y);
+doc.text('• Implemented secure JWT authentication and sub-80ms queries with 0% external cloud data leakage or API fees.', margin + 6, y);
 
 y += 12;
 // Project 2: Games 24
@@ -177,9 +202,9 @@ y += 10;
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(8);
 doc.setTextColor(...textDark);
-doc.text('• Designed an immersive dark-mode digital distribution platform inspired by Steam and Epic Games Store.', margin + 6, y);
+doc.text('• Designed high-fidelity storefront modeling 40+ game title catalog items, 12 genre taxonomies, and 35+ design tokens.', margin + 6, y);
 y += 9;
-doc.text('• Engineered atomic design design system, interactive micro-interactions, and streamlined 2-step checkout flow.', margin + 6, y);
+doc.text('• Engineered 20+ atomic UI components and tested an interactive 10+ screen prototype with a frictionless 2-step checkout flow.', margin + 6, y);
 
 y += 12;
 // Project 3: Medi_Map
@@ -197,7 +222,7 @@ y += 10;
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(8);
 doc.setTextColor(...textDark);
-doc.text('• Interactive geospatial locator mapping hospitals, specialty clinics, and emergency response routes.', margin + 6, y);
+doc.text('• Constructed geospatial data model indexing 50+ verified clinic coordinates and 25+ emergency centers across 12 specialties.', margin + 6, y);
 
 y += 12;
 // Project 4: AuraSpace & Product_Store
@@ -215,7 +240,7 @@ y += 10;
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(8);
 doc.setTextColor(...textDark);
-doc.text('• Built modular TypeScript collaborative workspaces and reactive product inventory with real-time REST CRUD APIs.', margin + 6, y);
+doc.text('• Engineered TypeScript workspace models managing 50+ document nodes and Product_Store catalog with 45+ SKU records.', margin + 6, y);
 
 y += 14;
 
@@ -245,28 +270,6 @@ y += 9;
 doc.text('• Built responsive iOS view hierarchies conforming to Apple Human Interface Guidelines and MVC architectural patterns.', margin + 6, y);
 
 y += 14;
-
-// 5. TECHNICAL SKILLS & ARSENAL
-drawSectionHeader('Technical Skills & Problem Solving');
-
-function printSkillRow(category, skills) {
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(8.5);
-  doc.setTextColor(...accentColor);
-  doc.text(category + ':', margin, y);
-  
-  const catWidth = doc.getTextWidth(category + ': ') + 4;
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(8.5);
-  doc.setTextColor(...textDark);
-  doc.text(skills, margin + catWidth, y);
-  y += 11;
-}
-
-printSkillRow('Full-Stack', 'Next.js (App Router, SSR), React 19, Node.js, Express.js, MongoDB, TypeScript, JavaScript, Tailwind CSS');
-printSkillRow('Mobile & AI', 'Swift, Xcode, iOS SDK (MVC, AutoLayout), Local Ollama AI (Llama, Mistral), JWT Authentication');
-printSkillRow('Competitive', 'LeetCode (@satyajitzzzzz, 50+ Solved: 30 Easy, 15 Med, 5 Hard), Codeforces (@satyajitzzz, Rating 1184), DSA Mastery');
-printSkillRow('Tools & Design', 'Figma UI/UX Prototyping, Git, GitHub, VS Code, Postman, Leaflet Maps, REST APIs');
 
 // Ensure public directory exists and write file
 const publicDir = path.resolve('public');

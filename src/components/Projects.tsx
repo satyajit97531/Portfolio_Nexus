@@ -10,7 +10,8 @@ import {
   ArrowUpRight,
   ShieldCheck,
   Zap,
-  CheckCircle
+  CheckCircle,
+  Database
 } from 'lucide-react';
 import { projectsData } from '../data/portfolioData';
 import { Project } from '../types';
@@ -114,6 +115,16 @@ export const Projects: React.FC = () => {
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                     {project.tagline}
                   </p>
+
+                  {/* Data Model & Volume Numeral Callout */}
+                  {project.dataVolumeNumeral && (
+                    <div className="px-2.5 py-1.5 rounded-lg bg-violet-500/10 border border-violet-500/25 flex items-center gap-2 text-[10px] font-mono text-violet-300">
+                      <Database className="w-3.5 h-3.5 text-violet-400 shrink-0" />
+                      <span className="truncate">
+                        <span className="text-white font-semibold">Data Models:</span> {project.dataVolumeNumeral}
+                      </span>
+                    </div>
+                  )}
 
                   {/* Key Metrics Pill */}
                   <div className="bg-black/30 p-3 rounded-xl border border-white/[0.05] space-y-1.5">

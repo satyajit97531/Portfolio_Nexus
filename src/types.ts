@@ -19,6 +19,8 @@ export interface Project {
     database?: string;
     aiOrTools?: string;
   };
+  dataModel?: string;
+  dataVolumeNumeral?: string;
 }
 
 export interface Skill {

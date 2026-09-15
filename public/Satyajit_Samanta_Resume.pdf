@@ -10,7 +10,7 @@
 endobj
 4 0 obj
 <<
-/Length 9280
+/Length 9356
 >>
 stream
 0.200025 w
@@ -48,7 +48,7 @@ BT
 9.1999999999999993 TL
 0.31 0.275 0.898 rg
 36. 749.8899999999999864 Td
-(LeetCode: leetcode.com/u/satyajitzzzzz \(50+ Solved: 30E/15M/5H\)  |  Codeforces: codeforces.com/profile/satyajitzzz \(Rating: 1184\)) Tj
+(LeetCode: leetcode.com/u/satyajitzzzzz \(50+ Solved: 30E/15M/5H\)  |  Codeforces: codeforces.com/profile/satyajitzzz \(35+ Problems Solved\)) Tj
 ET
 0.89 0.91 0.94 RG
 0.8 w
@@ -117,7 +117,7 @@ BT
 9.1999999999999993 TL
 0.392 0.455 0.545 rg
 36. 655.8899999999999864 Td
-(Delhi Global Institute of Technology \(DGIT\) / MERI · Maharshi Dayanand University \(MDU\), Haryana) Tj
+(Delhi Global Institute of Technology \(DGIT\) · Maharshi Dayanand University \(MDU\), Haryana) Tj
 ET
 BT
 /F1 8 Tf
@@ -166,247 +166,248 @@ BT
 10.9249999999999989 TL
 0.31 0.275 0.898 rg
 36. 592.8899999999999864 Td
-(TECHNICAL PROJECTS) Tj
-ET
-0.31 0.27 0.9 RG
-0.75 w
-36. 589.8899999999999864 m
-159.3000000000000114 589.8899999999999864 l
-S
-0.89 0.91 0.94 RG
-0.4 w
-159.3000000000000114 589.8899999999999864 m
-559.2799999999999727 589.8899999999999864 l
-S
-BT
-/F2 9 Tf
-10.3499999999999996 TL
-0.118 0.161 0.231 rg
-36. 579.8899999999999864 Td
-(Service Portal Application \(Major Project\) | MERN Stack + Local Ollama AI) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.31 0.275 0.898 rg
-417.519999999999925 579.8899999999999864 Td
-(github.com/satyajit97531/Service_Portal) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.118 0.161 0.231 rg
-42. 569.8899999999999864 Td
-(• Architected full-stack diagnostic portal featuring private on-device LLM consultations via Ollama \(Llama/Mistral\).) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.118 0.161 0.231 rg
-42. 560.8899999999999864 Td
-(• Implemented secure JWT authentication, MongoDB document clustering, and interactive biometric vitals & BMI tracking.) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.118 0.161 0.231 rg
-42. 551.8899999999999864 Td
-(• Eliminates recurring cloud AI API costs and guarantees zero external medical data transmission.) Tj
-ET
-BT
-/F2 9 Tf
-10.3499999999999996 TL
-0.118 0.161 0.231 rg
-36. 539.8899999999999864 Td
-(Games 24 \(Minor Project\) | High-Fidelity Game Storefront Platform \(Figma UI/UX\)) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.31 0.275 0.898 rg
-463.7599999999999341 539.8899999999999864 Td
-(Figma UI/UX & Prototyping) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.118 0.161 0.231 rg
-42. 529.8899999999999864 Td
-(• Designed an immersive dark-mode digital distribution platform inspired by Steam and Epic Games Store.) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.118 0.161 0.231 rg
-42. 520.8899999999999864 Td
-(• Engineered atomic design design system, interactive micro-interactions, and streamlined 2-step checkout flow.) Tj
-ET
-BT
-/F2 9 Tf
-10.3499999999999996 TL
-0.118 0.161 0.231 rg
-36. 508.8899999999999864 Td
-(Medi_Map | Geospatial Clinic & Emergency Navigation | React, Leaflet, Node.js) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.31 0.275 0.898 rg
-432.0799999999999272 508.8899999999999864 Td
-(github.com/satyajit97531/Medi_Map) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.118 0.161 0.231 rg
-42. 498.8899999999999864 Td
-(• Interactive geospatial locator mapping hospitals, specialty clinics, and emergency response routes.) Tj
-ET
-BT
-/F2 9 Tf
-10.3499999999999996 TL
-0.118 0.161 0.231 rg
-36. 486.8899999999999864 Td
-(AuraSpace & Product_Store | TypeScript, React 19, Express.js, Tailwind CSS) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.31 0.275 0.898 rg
-429.9199999999999591 486.8899999999999864 Td
-(github.com/satyajit97531/AuraSpace) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.118 0.161 0.231 rg
-42. 476.8899999999999864 Td
-(• Built modular TypeScript collaborative workspaces and reactive product inventory with real-time REST CRUD APIs.) Tj
-ET
-BT
-/F2 9.5 Tf
-10.9249999999999989 TL
-0.31 0.275 0.898 rg
-36. 462.8899999999999864 Td
-(INDUSTRY TRAINING & CERTIFICATIONS) Tj
-ET
-0.31 0.27 0.9 RG
-0.75 w
-36. 459.8899999999999864 m
-237.7700000000000102 459.8899999999999864 l
-S
-0.89 0.91 0.94 RG
-0.4 w
-237.7700000000000102 459.8899999999999864 m
-559.2799999999999727 459.8899999999999864 l
-S
-BT
-/F2 9 Tf
-10.3499999999999996 TL
-0.118 0.161 0.231 rg
-36. 449.8899999999999864 Td
-(iOS Application Development Certification | SKLZ TECT LLP \(sklztect.com\)) Tj
-ET
-BT
-/F2 8.5 Tf
-9.7749999999999986 TL
-0.31 0.275 0.898 rg
-440.7049999999999272 449.8899999999999864 Td
-(June - August 2024 \(8 Weeks\)) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.392 0.455 0.545 rg
-36. 439.8899999999999864 Td
-(Conducted at Management Education & Research Institute \(MERI\), New Delhi | Credential: SKLZ-TECT-IOS-2024-SAMANTA) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.118 0.161 0.231 rg
-42. 430.8899999999999864 Td
-(• Completed intensive 8-week corporate training in native iOS development using Swift and Xcode.) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.118 0.161 0.231 rg
-42. 421.8899999999999864 Td
-(• Built responsive iOS view hierarchies conforming to Apple Human Interface Guidelines and MVC architectural patterns.) Tj
-ET
-BT
-/F2 9.5 Tf
-10.9249999999999989 TL
-0.31 0.275 0.898 rg
-36. 407.8899999999999864 Td
 (TECHNICAL SKILLS & PROBLEM SOLVING) Tj
 ET
 0.31 0.27 0.9 RG
 0.75 w
-36. 404.8899999999999864 m
-245.7500000000000284 404.8899999999999864 l
+36. 589.8899999999999864 m
+245.7500000000000284 589.8899999999999864 l
 S
 0.89 0.91 0.94 RG
 0.4 w
-245.7500000000000284 404.8899999999999864 m
-559.2799999999999727 404.8899999999999864 l
+245.7500000000000284 589.8899999999999864 m
+559.2799999999999727 589.8899999999999864 l
 S
 BT
 /F2 8.5 Tf
 9.7749999999999986 TL
 0.31 0.275 0.898 rg
-36. 394.8899999999999864 Td
+36. 579.8899999999999864 Td
 (Full-Stack:) Tj
 ET
 BT
 /F1 8.5 Tf
 9.7749999999999986 TL
 0.118 0.161 0.231 rg
-85.5600000000000023 394.8899999999999864 Td
+85.5600000000000023 579.8899999999999864 Td
 (Next.js \(App Router, SSR\), React 19, Node.js, Express.js, MongoDB, TypeScript, JavaScript, Tailwind CSS) Tj
 ET
 BT
 /F2 8.5 Tf
 9.7749999999999986 TL
 0.31 0.275 0.898 rg
-36. 383.8899999999999864 Td
+36. 568.8899999999999864 Td
 (Mobile & AI:) Tj
 ET
 BT
 /F1 8.5 Tf
 9.7749999999999986 TL
 0.118 0.161 0.231 rg
-91.4250000000000114 383.8899999999999864 Td
+91.4250000000000114 568.8899999999999864 Td
 (Swift, Xcode, iOS SDK \(MVC, AutoLayout\), Local Ollama AI \(Llama, Mistral\), JWT Authentication) Tj
 ET
 BT
 /F2 8.5 Tf
 9.7749999999999986 TL
 0.31 0.275 0.898 rg
-36. 372.8899999999999864 Td
-(Competitive:) Tj
+36. 557.8899999999999864 Td
+(Problem Solving:) Tj
 ET
 BT
 /F1 8.5 Tf
 9.7749999999999986 TL
 0.118 0.161 0.231 rg
-93.6350000000000051 372.8899999999999864 Td
-(LeetCode \(@satyajitzzzzz, 50+ Solved: 30 Easy, 15 Med, 5 Hard\), Codeforces \(@satyajitzzz, Rating 1184\), DSA Mastery) Tj
+112.0799999999999983 557.8899999999999864 Td
+(LeetCode \(@satyajitzzzzz, 50+ Solved: 30 Easy, 15 Med, 5 Hard\), Codeforces \(@satyajitzzz, 35+ Problems Solved\),) Tj
+T* (DSA Intermediate) Tj
 ET
 BT
 /F2 8.5 Tf
 9.7749999999999986 TL
 0.31 0.275 0.898 rg
-36. 361.8899999999999864 Td
+36. 536.8899999999999864 Td
 (Tools & Design:) Tj
 ET
 BT
 /F1 8.5 Tf
 9.7749999999999986 TL
 0.118 0.161 0.231 rg
-106.2150000000000034 361.8899999999999864 Td
+106.2150000000000034 536.8899999999999864 Td
 (Figma UI/UX Prototyping, Git, GitHub, VS Code, Postman, Leaflet Maps, REST APIs) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.31 0.275 0.898 rg
+36. 522.8899999999999864 Td
+(TECHNICAL PROJECTS) Tj
+ET
+0.31 0.27 0.9 RG
+0.75 w
+36. 519.8899999999999864 m
+159.3000000000000114 519.8899999999999864 l
+S
+0.89 0.91 0.94 RG
+0.4 w
+159.3000000000000114 519.8899999999999864 m
+559.2799999999999727 519.8899999999999864 l
+S
+BT
+/F2 9 Tf
+10.3499999999999996 TL
+0.118 0.161 0.231 rg
+36. 509.8899999999999864 Td
+(Service Portal Application \(Major Project\) | MERN Stack + Local Ollama AI) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.31 0.275 0.898 rg
+417.519999999999925 509.8899999999999864 Td
+(github.com/satyajit97531/Service_Portal) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.118 0.161 0.231 rg
+42. 499.8899999999999864 Td
+(• Architected full-stack portal with on-premise Ollama AI trained/conditioned with 45+ medical Q&A pairs.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.118 0.161 0.231 rg
+42. 490.8899999999999864 Td
+(• Modeled 5 MongoDB document schemas managing 60+ synthetic biometric telemetry records & vital trend histories.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.118 0.161 0.231 rg
+42. 481.8899999999999864 Td
+(• Implemented secure JWT authentication and sub-80ms queries with 0% external cloud data leakage or API fees.) Tj
+ET
+BT
+/F2 9 Tf
+10.3499999999999996 TL
+0.118 0.161 0.231 rg
+36. 469.8899999999999864 Td
+(Games 24 \(Minor Project\) | High-Fidelity Game Storefront Platform \(Figma UI/UX\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.31 0.275 0.898 rg
+463.7599999999999341 469.8899999999999864 Td
+(Figma UI/UX & Prototyping) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.118 0.161 0.231 rg
+42. 459.8899999999999864 Td
+(• Designed high-fidelity storefront modeling 40+ game title catalog items, 12 genre taxonomies, and 35+ design tokens.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.118 0.161 0.231 rg
+42. 450.8899999999999864 Td
+(• Engineered 20+ atomic UI components and tested an interactive 10+ screen prototype with a frictionless 2-step checkout flow.) Tj
+ET
+BT
+/F2 9 Tf
+10.3499999999999996 TL
+0.118 0.161 0.231 rg
+36. 438.8899999999999864 Td
+(Medi_Map | Geospatial Clinic & Emergency Navigation | React, Leaflet, Node.js) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.31 0.275 0.898 rg
+432.0799999999999272 438.8899999999999864 Td
+(github.com/satyajit97531/Medi_Map) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.118 0.161 0.231 rg
+42. 428.8899999999999864 Td
+(• Constructed geospatial data model indexing 50+ verified clinic coordinates and 25+ emergency centers across 12 specialties.) Tj
+ET
+BT
+/F2 9 Tf
+10.3499999999999996 TL
+0.118 0.161 0.231 rg
+36. 416.8899999999999864 Td
+(AuraSpace & Product_Store | TypeScript, React 19, Express.js, Tailwind CSS) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.31 0.275 0.898 rg
+429.9199999999999591 416.8899999999999864 Td
+(github.com/satyajit97531/AuraSpace) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.118 0.161 0.231 rg
+42. 406.8899999999999864 Td
+(• Engineered TypeScript workspace models managing 50+ document nodes and Product_Store catalog with 45+ SKU records.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.31 0.275 0.898 rg
+36. 392.8899999999999864 Td
+(INDUSTRY TRAINING & CERTIFICATIONS) Tj
+ET
+0.31 0.27 0.9 RG
+0.75 w
+36. 389.8899999999999864 m
+237.7700000000000102 389.8899999999999864 l
+S
+0.89 0.91 0.94 RG
+0.4 w
+237.7700000000000102 389.8899999999999864 m
+559.2799999999999727 389.8899999999999864 l
+S
+BT
+/F2 9 Tf
+10.3499999999999996 TL
+0.118 0.161 0.231 rg
+36. 379.8899999999999864 Td
+(iOS Application Development Certification | SKLZ TECT LLP \(sklztect.com\)) Tj
+ET
+BT
+/F2 8.5 Tf
+9.7749999999999986 TL
+0.31 0.275 0.898 rg
+440.7049999999999272 379.8899999999999864 Td
+(June - August 2024 \(8 Weeks\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.392 0.455 0.545 rg
+36. 369.8899999999999864 Td
+(Conducted at Management Education & Research Institute \(MERI\), New Delhi | Credential: SKLZ-TECT-IOS-2024-SAMANTA) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.118 0.161 0.231 rg
+42. 360.8899999999999864 Td
+(• Completed intensive 8-week corporate training in native iOS development using Swift and Xcode.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.118 0.161 0.231 rg
+42. 351.8899999999999864 Td
+(• Built responsive iOS view hierarchies conforming to Apple Human Interface Guidelines and MVC architectural patterns.) Tj
 ET
 endstream
 endobj
@@ -580,7 +581,7 @@ endobj
 19 0 obj
 <<
 /Producer (jsPDF 4.2.1)
-/CreationDate (D:20260915172617-00'00')
+/CreationDate (D:20260915204201-00'00')
 >>
 endobj
 20 0 obj
@@ -594,33 +595,33 @@ endobj
 xref
 0 21
 0000000000 65535 f 
-0000009484 00000 n 
-0000011301 00000 n 
+0000009560 00000 n 
+0000011377 00000 n 
 0000000015 00000 n 
 0000000152 00000 n 
-0000009541 00000 n 
-0000009666 00000 n 
-0000009796 00000 n 
-0000009929 00000 n 
-0000010066 00000 n 
-0000010189 00000 n 
-0000010318 00000 n 
-0000010450 00000 n 
-0000010586 00000 n 
-0000010714 00000 n 
-0000010841 00000 n 
-0000010970 00000 n 
-0000011103 00000 n 
-0000011205 00000 n 
-0000011549 00000 n 
-0000011635 00000 n 
+0000009617 00000 n 
+0000009742 00000 n 
+0000009872 00000 n 
+0000010005 00000 n 
+0000010142 00000 n 
+0000010265 00000 n 
+0000010394 00000 n 
+0000010526 00000 n 
+0000010662 00000 n 
+0000010790 00000 n 
+0000010917 00000 n 
+0000011046 00000 n 
+0000011179 00000 n 
+0000011281 00000 n 
+0000011625 00000 n 
+0000011711 00000 n 
 trailer
 <<
 /Size 21
 /Root 20 0 R
 /Info 19 0 R
-/ID [ <C2EBC386B2C5004183C2FE720AAE9FDE> <C2EBC386B2C5004183C2FE720AAE9FDE> ]
+/ID [ <F94EDF82F50486EF2858BB136EC7357D> <F94EDF82F50486EF2858BB136EC7357D> ]
 >>
 startxref
-11739
+11815
 %%EOF

@@ -138,10 +138,68 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
               </p>
             </div>
 
+            {/* Education */}
+            <div className="space-y-3">
+              <h2 className="text-xs font-mono uppercase text-cyan-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
+                Education
+              </h2>
+
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-center justify-between">
+                  <h3 className="text-sm font-bold text-white">
+                    Bachelor of Technology in Computer Science & Engineering (B.Tech CSE)
+                  </h3>
+                  <span className="text-xs font-mono text-cyan-300">2023 – 2027</span>
+                </div>
+                <div className="text-xs text-slate-400">
+                  Delhi Global Institute of Technology (DGIT), Maharshi Dayanand University (MDU), Haryana
+                </div>
+                <div className="text-xs text-slate-300">
+                  Semester: 7th | Roll No: 23DGITM425 | Core: Data Structures, Algorithms, DBMS, Operating Systems
+                </div>
+
+                <div className="pt-2">
+                  <div className="flex flex-wrap items-center justify-between">
+                    <h3 className="text-sm font-bold text-white">
+                      Senior Secondary Education (Class XII & X)
+                    </h3>
+                    <span className="text-xs font-mono text-slate-400">Completed</span>
+                  </div>
+                  <div className="text-xs text-slate-400">
+                    Vinay Nagar Senior Secondary School, New Delhi
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Technical Skills & Problem Solving (Directly Under Education) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+              <div className="space-y-2">
+                <h2 className="text-xs font-mono uppercase text-violet-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
+                  Technical Skills & Arsenal
+                </h2>
+                <div className="text-xs text-slate-300 space-y-1.5">
+                  <div><strong>Development:</strong> MERN Stack (MongoDB, Express.js, React.js, Node.js), Next.js, HTML5, CSS3, JavaScript, TypeScript</div>
+                  <div><strong>Mobile & AI:</strong> Swift, iOS Development (Xcode, UIKit), Ollama (Local AI Chatbot)</div>
+                  <div><strong>Design & Tools:</strong> UI/UX Design, Figma, Wireframing, Git, GitHub, VS Code, Postman</div>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <h2 className="text-xs font-mono uppercase text-emerald-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
+                  Problem Solving & Algorithmic
+                </h2>
+                <div className="text-xs text-slate-300 space-y-1.5">
+                  <div><strong>Problem Solving:</strong> LeetCode (@satyajitzzzzz, 50+ Solved: 30 Easy, 15 Med, 5 Hard), Codeforces (@satyajitzzz, 35+ Problems Solved), DSA Intermediate</div>
+                  <div><strong>Platform Metrics:</strong> LeetCode (50+ Solved: 30E / 15M / 5H), Codeforces (35+ Solved)</div>
+                </div>
+              </div>
+            </div>
+
             {/* Projects Section */}
             <div className="space-y-4">
               <h2 className="text-xs font-mono uppercase text-violet-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
-                Engineering Projects
+                Engineering Projects & Data Models
               </h2>
 
               {/* Major Project */}
@@ -155,7 +213,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                   </span>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Developed a comprehensive health tracking and wellness platform that allows users to monitor biometric vitals, fitness goals, and healthcare metrics. Integrated a local Ollama AI assistant for private, on-premise consultation without cloud API cost. Implemented secure user authentication (JWT) and real-time data visualizations.
+                  Developed a comprehensive health tracking and wellness platform with on-premise localized Ollama LLM assistant. Integrated a local model conditioned on <strong>45+ clinical and wellness Q&A pairs</strong>. Modeled <strong>5 MongoDB document schemas</strong> managing <strong>60+ synthetic biometric telemetry records</strong> (BMI curves, blood pressure, glucose logs). Features secure JWT authentication with 0% external cloud API data leakage.
                 </p>
               </div>
 
@@ -170,7 +228,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                   </span>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Designed a high-fidelity user interface for a digital game distribution platform similar to Steam and Epic Games. Created a modern, dark-themed gaming aesthetic with intuitive navigation for browsing game libraries, detailed product specification pages, and a streamlined checkout flow.
+                  Designed a high-fidelity user interface for a digital game distribution platform similar to Steam and Epic Games. Architected catalog data models structuring <strong>40+ game title catalog items</strong>, <strong>12 genre taxonomies</strong>, <strong>35+ design tokens</strong>, and <strong>20+ reusable atomic UI components</strong> across <strong>10+ interactive flow screens</strong> with a streamlined 2-step checkout flow.
                 </p>
               </div>
 
@@ -185,7 +243,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                   </span>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Constructed specialized healthcare clinic locator with emergency radius searches (Medi_Map) and high-performance collaborative modern workspace architecture in TypeScript (AuraSpace).
+                  Engineered Medi_Map's geospatial data model indexing <strong>50+ verified clinic coordinates</strong> and <strong>25+ emergency centers</strong> across 12 specialties with 2dsphere spatial indexing. Modeled AuraSpace's TypeScript workspace data schemas managing <strong>50+ document nodes</strong> and Product_Store catalog organizing <strong>45+ SKU inventory records</strong>.
                 </p>
               </div>
             </div>
@@ -234,63 +292,14 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
               </div>
             </div>
 
-            {/* Education */}
-            <div className="space-y-3">
-              <h2 className="text-xs font-mono uppercase text-cyan-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
-                Education
+            {/* Languages & Interests */}
+            <div className="space-y-2 pt-1">
+              <h2 className="text-xs font-mono uppercase text-slate-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
+                Languages & Interests
               </h2>
-
-              <div className="space-y-2">
-                <div className="flex flex-wrap items-center justify-between">
-                  <h3 className="text-sm font-bold text-white">
-                    Bachelor of Technology in Computer Science & Engineering (B.Tech CSE)
-                  </h3>
-                  <span className="text-xs font-mono text-cyan-300">2023 – 2027</span>
-                </div>
-                <div className="text-xs text-slate-400">
-                  Delhi Global Institute of Technology (DGIT) / MERI College, Maharshi Dayanand University (MDU), Haryana
-                </div>
-                <div className="text-xs text-slate-300">
-                  Semester: 7th | Roll No: 23DGITM425 | Core: Data Structures, Algorithms, DBMS, Operating Systems
-                </div>
-
-                <div className="pt-2">
-                  <div className="flex flex-wrap items-center justify-between">
-                    <h3 className="text-sm font-bold text-white">
-                      Senior Secondary Education (Class XII & X)
-                    </h3>
-                    <span className="text-xs font-mono text-slate-400">Completed</span>
-                  </div>
-                  <div className="text-xs text-slate-400">
-                    Vinay Nagar Senior Secondary School, New Delhi
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Technical Skills & Languages */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="space-y-2">
-                <h2 className="text-xs font-mono uppercase text-violet-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
-                  Technical Arsenal
-                </h2>
-                <div className="text-xs text-slate-300 space-y-1">
-                  <div><strong>Development:</strong> MERN Stack (MongoDB, Express.js, React.js, Node.js), HTML, CSS, JavaScript, TypeScript</div>
-                  <div><strong>Mobile & AI:</strong> Swift, iOS Development, Ollama (Local AI Chatbot)</div>
-                  <div><strong>Design:</strong> UI/UX Design, Figma, Wireframing, Prototyping</div>
-                  <div><strong>Tools:</strong> Git, GitHub, VS Code, Xcode</div>
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <h2 className="text-xs font-mono uppercase text-emerald-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
-                  Languages & Interests
-                </h2>
-                <div className="text-xs text-slate-300 space-y-1">
-                  <div><strong>Languages:</strong> English (Professional Proficiency), Hindi (Native)</div>
-                  <div><strong>Hobbies:</strong> Web Design & Prototyping, Watching Tech Blogs, High-Performance PC Gaming & Hardware Optimization</div>
-                  <div><strong>Competitive:</strong> LeetCode (@satyajitzzzzz, 50+ Solved: 30 Easy, 15 Med, 5 Hard) & Codeforces (@satyajitzzz, 35+ Solved: Greedy & Implementation)</div>
-                </div>
+              <div className="text-xs text-slate-300 space-y-1">
+                <div><strong>Languages:</strong> English (Professional Proficiency), Hindi (Native)</div>
+                <div><strong>Interests & Hobbies:</strong> Web Design & Prototyping, Tech Architecture, High-Performance Computing & Hardware Optimization</div>
               </div>
             </div>
 
