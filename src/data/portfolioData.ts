@@ -402,18 +402,18 @@ export const leetCodeData = {
   profileUrl: "https://leetcode.com/u/satyajitzzzzz/",
   ranking: "Top Problem Solver",
   focusAreas: [
-    { name: "Arrays & Hashing", count: 42, color: "#38bdf8" },
-    { name: "Two Pointers & Sliding Window", count: 28, color: "#a855f7" },
-    { name: "Binary Trees & BST", count: 25, color: "#10b981" },
-    { name: "Dynamic Programming & Recursion", count: 20, color: "#f59e0b" },
-    { name: "Strings & Math", count: 35, color: "#ec4899" }
+    { name: "Arrays & Hashing", count: 18, color: "#38bdf8" },
+    { name: "Two Pointers & Sliding Window", count: 11, color: "#a855f7" },
+    { name: "Binary Trees & BST", count: 8, color: "#10b981" },
+    { name: "Dynamic Programming & Recursion", count: 6, color: "#f59e0b" },
+    { name: "Strings & Math", count: 7, color: "#ec4899" }
   ],
   stats: {
-    easySolved: 75,
-    mediumSolved: 60,
-    hardSolved: 15,
-    totalSolved: 150,
-    acceptanceRate: "72.4%"
+    easySolved: 30,
+    mediumSolved: 15,
+    hardSolved: 5,
+    totalSolved: 50,
+    acceptanceRate: "76.8%"
   }
 };
 
@@ -422,15 +422,14 @@ export const codeforcesData = {
   profileUrl: "https://codeforces.com/profile/satyajitzzz",
   title: "Competitive Programmer",
   platform: "Codeforces",
-  rank: "Pupil / Active Participant",
-  rating: 1184,
-  maxRating: 1220,
+  rank: "Algorithmic Problem Solver",
   contests: 14,
-  problemsSolved: 95,
+  problemsSolved: 35,
+  primaryTopic: "Greedy & Implementation",
   tags: [
-    { name: "Greedy & Implementation", count: 34, color: "#38bdf8" },
-    { name: "Math & Number Theory", count: 26, color: "#818cf8" },
-    { name: "Constructive Algorithms", count: 18, color: "#f43f5e" },
-    { name: "Sorting & Two Pointers", count: 17, color: "#10b981" }
+    { name: "Greedy Algorithms", count: 18, color: "#38bdf8" },
+    { name: "Implementation & Simulation", count: 14, color: "#10b981" },
+    { name: "Math & Constructive Logic", count: 8, color: "#818cf8" },
+    { name: "Two Pointers & Brute Force", count: 5, color: "#f59e0b" }
   ]
 };

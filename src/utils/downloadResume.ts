@@ -77,7 +77,7 @@ export function generateClientSidePdf(): void {
 
   y += 10;
   doc.setTextColor(79, 70, 229);
-  doc.text('LeetCode: leetcode.com/u/satyajitzzzzz (150+ Solved)  |  Codeforces: codeforces.com/profile/satyajitzzz (Rating: 1184)', margin, y);
+  doc.text('LeetCode: leetcode.com/u/satyajitzzzzz (50+ Solved: 30E/15M/5H)  |  Codeforces: codeforces.com/profile/satyajitzzz (35+ Solved: Greedy & Implementation)', margin, y);
 
   y += 12;
   doc.setDrawColor(226, 232, 240);
@@ -183,7 +183,7 @@ export function generateClientSidePdf(): void {
   y += 10;
   doc.text('Mobile & AI: iOS Development (Swift, Xcode, UIKit), Local Ollama AI (Llama, Mistral), JWT Authentication', margin, y);
   y += 10;
-  doc.text('Problem Solving: LeetCode (150+ Solved, @satyajitzzzzz), Codeforces (Rating 1184, @satyajitzzz)', margin, y);
+  doc.text('Problem Solving: LeetCode (50+ Solved: 30 Easy, 15 Med, 5 Hard, @satyajitzzzzz), Codeforces (35+ Solved: Greedy & Implementation, @satyajitzzz)', margin, y);
   y += 10;
   doc.text('Tools: Figma UI/UX Prototyping, Git, GitHub, VS Code, Postman, Leaflet Maps', margin, y);
 

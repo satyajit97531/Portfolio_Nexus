@@ -138,7 +138,7 @@ export const LeetCodeSection: React.FC = () => {
                       <div className="w-full h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
-                          whileInView={{ width: `${Math.min(100, (area.count / 45) * 100)}%` }}
+                          whileInView={{ width: `${Math.min(100, (area.count / 20) * 100)}%` }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.8, delay: idx * 0.1 }}
                           className="h-full rounded-full"
@@ -189,32 +189,23 @@ export const LeetCodeSection: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Rating & Contest Stats */}
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="bg-white/[0.03] p-3.5 rounded-2xl border border-white/[0.06] text-center">
-                    <div className="text-2xl font-black text-cyan-400 font-mono">
-                      {codeforcesData.rating}
-                    </div>
-                    <div className="text-[10px] text-slate-400 font-mono uppercase mt-1">
-                      Current Rating
-                    </div>
-                  </div>
-
-                  <div className="bg-white/[0.03] p-3.5 rounded-2xl border border-white/[0.06] text-center">
-                    <div className="text-2xl font-black text-indigo-400 font-mono">
-                      {codeforcesData.maxRating}
-                    </div>
-                    <div className="text-[10px] text-slate-400 font-mono uppercase mt-1">
-                      Peak Rating
-                    </div>
-                  </div>
-
+                {/* Problem Solving & Focus Stats */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div className="bg-white/[0.03] p-3.5 rounded-2xl border border-white/[0.06] text-center">
                     <div className="text-2xl font-black text-emerald-400 font-mono">
                       {codeforcesData.problemsSolved}+
                     </div>
                     <div className="text-[10px] text-slate-400 font-mono uppercase mt-1">
                       Problems Solved
+                    </div>
+                  </div>
+
+                  <div className="bg-white/[0.03] p-3.5 rounded-2xl border border-white/[0.06] text-center sm:col-span-2">
+                    <div className="text-base sm:text-lg font-bold text-cyan-300 font-display truncate">
+                      {codeforcesData.primaryTopic}
+                    </div>
+                    <div className="text-[10px] text-slate-400 font-mono uppercase mt-1">
+                      Core Paradigms & Technique
                     </div>
                   </div>
                 </div>
@@ -234,7 +225,7 @@ export const LeetCodeSection: React.FC = () => {
                       <div className="w-full h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
-                          whileInView={{ width: `${Math.min(100, (tag.count / 35) * 100)}%` }}
+                          whileInView={{ width: `${Math.min(100, (tag.count / 18) * 100)}%` }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.8, delay: idx * 0.1 }}
                           className="h-full rounded-full"

@@ -55,7 +55,7 @@ doc.text(contactLine, margin, y);
 y += 10;
 doc.setFontSize(8);
 doc.setTextColor(...accentColor);
-doc.text('LeetCode: leetcode.com/u/satyajitzzzzz (150+ Solved)  |  Codeforces: codeforces.com/profile/satyajitzzz (Rating: 1184)', margin, y);
+doc.text('LeetCode: leetcode.com/u/satyajitzzzzz (50+ Solved: 30E/15M/5H)  |  Codeforces: codeforces.com/profile/satyajitzzz (Rating: 1184)', margin, y);
 
 // Divider
 y += 10;
@@ -265,7 +265,7 @@ function printSkillRow(category, skills) {
 
 printSkillRow('Full-Stack', 'Next.js (App Router, SSR), React 19, Node.js, Express.js, MongoDB, TypeScript, JavaScript, Tailwind CSS');
 printSkillRow('Mobile & AI', 'Swift, Xcode, iOS SDK (MVC, AutoLayout), Local Ollama AI (Llama, Mistral), JWT Authentication');
-printSkillRow('Competitive', 'LeetCode (@satyajitzzzzz, 150+ Solved), Codeforces (@satyajitzzz, Rating 1184), DSA Mastery');
+printSkillRow('Competitive', 'LeetCode (@satyajitzzzzz, 50+ Solved: 30 Easy, 15 Med, 5 Hard), Codeforces (@satyajitzzz, Rating 1184), DSA Mastery');
 printSkillRow('Tools & Design', 'Figma UI/UX Prototyping, Git, GitHub, VS Code, Postman, Leaflet Maps, REST APIs');
 
 // Ensure public directory exists and write file

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import {
   Send,
@@ -13,9 +13,12 @@ import {
   Terminal,
   ExternalLink,
   Sparkles,
-  ShieldCheck
+  ShieldCheck,
+  Database,
+  Eye
 } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
+import { DatabaseBufferModal } from './DatabaseBufferModal';
 
 export const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -27,6 +30,27 @@ export const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [dbCount, setDbCount] = useState<number>(0);
+  const [isDbModalOpen, setIsDbModalOpen] = useState(false);
+  const [lastSavedRecord, setLastSavedRecord] = useState<{ id: string; timestamp: string } | null>(null);
+
+  const fetchDbCount = async () => {
+    try {
+      const res = await fetch('/api/dispatch');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success && typeof data.count === 'number') {
+          setDbCount(data.count);
+        }
+      }
+    } catch {
+      // silent fallback
+    }
+  };
+
+  useEffect(() => {
+    fetchDbCount();
+  }, []);
 
   const handleCopy = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
@@ -34,22 +58,37 @@ export const Contact: React.FC = () => {
     setTimeout(() => setCopiedField(null), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Prepare direct mailto URL as graceful fallback
-    const mailtoUrl = `mailto:${profileData.email}?subject=${encodeURIComponent(
-      formState.subject || `Message from ${formState.name}`
-    )}&body=${encodeURIComponent(
-      `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`
-    )}`;
+    try {
+      const res = await fetch('/api/dispatch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
 
-    setTimeout(() => {
+      const data = await res.json();
+      if (data.success && data.data) {
+        setLastSavedRecord({
+          id: data.data.id,
+          timestamp: new Date(data.data.createdAt).toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+          }),
+        });
+        fetchDbCount();
+      }
+    } catch (err) {
+      console.warn('Network call to /api/dispatch fallback:', err);
+    } finally {
       setIsSubmitting(false);
       setSubmitted(true);
-      window.open(mailtoUrl, '_blank');
-    }, 800);
+    }
   };
 
   return (
@@ -247,37 +286,72 @@ export const Contact: React.FC = () => {
           <div className="lg:col-span-7">
             <div className="ios-glass-card rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
               
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+              <div className="flex flex-wrap items-center justify-between border-b border-white/[0.08] pb-4 gap-2">
                 <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
                   <Sparkles className="w-4 h-4 text-violet-400" />
                   <span>Dispatch Message Buffer</span>
                 </div>
-                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                  READY
-                </span>
+                
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setIsDbModalOpen(true)}
+                    type="button"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-[11px] font-mono text-emerald-300 hover:text-white transition-all shadow-sm"
+                    title="Inspect messages in Prisma MongoDB NoSQL database"
+                  >
+                    <Database className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>Prisma MongoDB ({dbCount})</span>
+                  </button>
+                  <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    MONGODB LIVE
+                  </span>
+                </div>
               </div>
 
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6 text-center space-y-3"
+                  className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6 text-center space-y-4"
                 >
                   <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
                     <Check className="w-6 h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-white font-display">
-                    Dispatch Initiated!
-                  </h4>
-                  <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
-                    Your message draft has been routed to <strong>{profileData.email}</strong>. You can also message directly on WhatsApp at <strong>+91 8076522382</strong>.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-3 px-4 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-xs font-mono text-white"
-                  >
-                    Send Another Transmission
-                  </button>
+                  <div className="space-y-1">
+                    <h4 className="text-lg font-bold text-white font-display">
+                      Transmission Recorded in Prisma MongoDB!
+                    </h4>
+                    <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
+                      Your transmission document has been saved to the Prisma MongoDB NoSQL collection (<code className="text-emerald-300 font-mono">dispatch_messages</code>).
+                    </p>
+                  </div>
+
+                  {lastSavedRecord && (
+                    <div className="p-3 rounded-lg bg-black/40 border border-emerald-500/20 text-[11px] font-mono text-slate-300 max-w-md mx-auto flex items-center justify-between">
+                      <span className="text-slate-400">_id (ObjectId): <span className="text-emerald-300">{lastSavedRecord.id}</span></span>
+                      <span className="text-emerald-400">Time: {lastSavedRecord.timestamp}</span>
+                    </div>
+                  )}
+
+                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                    <button
+                      onClick={() => setIsDbModalOpen(true)}
+                      className="px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-xs font-mono font-bold text-white flex items-center gap-1.5 transition-colors shadow-lg shadow-violet-500/25"
+                    >
+                      <Database className="w-4 h-4" />
+                      <span>Inspect Database Buffer</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormState({ name: '', email: '', subject: '', message: '' });
+                      }}
+                      className="px-4 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-xs font-mono text-white transition-colors"
+                    >
+                      Send Another Transmission
+                    </button>
+                  </div>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 font-mono text-xs">
@@ -348,7 +422,7 @@ export const Contact: React.FC = () => {
                     className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-mono text-xs font-bold flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(168,85,247,0.4)] transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50"
                   >
                     {isSubmitting ? (
-                      <span>Routing Transmission...</span>
+                      <span>Recording to Database...</span>
                     ) : (
                       <>
                         <Send className="w-4 h-4" />
@@ -365,6 +439,12 @@ export const Contact: React.FC = () => {
         </div>
 
       </div>
+
+      <DatabaseBufferModal
+        isOpen={isDbModalOpen}
+        onClose={() => setIsDbModalOpen(false)}
+        onMessageDeleted={fetchDbCount}
+      />
     </section>
   );
 };

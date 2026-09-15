@@ -289,7 +289,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                 <div className="text-xs text-slate-300 space-y-1">
                   <div><strong>Languages:</strong> English (Professional Proficiency), Hindi (Native)</div>
                   <div><strong>Hobbies:</strong> Web Design & Prototyping, Watching Tech Blogs, High-Performance PC Gaming & Hardware Optimization</div>
-                  <div><strong>Competitive:</strong> LeetCode (@satyajitzzzzz, 150+ Solved) & Codeforces (@satyajitzzz)</div>
+                  <div><strong>Competitive:</strong> LeetCode (@satyajitzzzzz, 50+ Solved: 30 Easy, 15 Med, 5 Hard) & Codeforces (@satyajitzzz, 35+ Solved: Greedy & Implementation)</div>
                 </div>
               </div>
             </div>
