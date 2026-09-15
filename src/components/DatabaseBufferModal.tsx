@@ -59,8 +59,8 @@ export const DatabaseBufferModal: React.FC<DatabaseBufferModalProps> = ({
         setMessages(data.data);
       }
     } catch (err: any) {
-      console.error('Failed to load messages from Prisma:', err);
-      setStatusNote('Unable to reach Prisma database endpoint. Dev server may be syncing.');
+      console.error('Failed to load messages from MongoDB:', err);
+      setStatusNote('Unable to reach MongoDB database endpoint. Server may be syncing.');
     } finally {
       setIsLoading(false);
     }
@@ -73,7 +73,7 @@ export const DatabaseBufferModal: React.FC<DatabaseBufferModalProps> = ({
   }, [isOpen]);
 
   const handleDelete = async (id: string) => {
-    if (!window.confirm('Delete this message from the Prisma SQLite database?')) {
+    if (!window.confirm('Delete this message from the MongoDB Atlas database?')) {
       return;
     }
     setDeletingId(id);
@@ -132,7 +132,7 @@ export const DatabaseBufferModal: React.FC<DatabaseBufferModalProps> = ({
               <div>
                 <div className="flex items-center gap-2">
                   <h3 className="text-base sm:text-lg font-bold text-white font-display">
-                    Prisma NoSQL Database Buffer
+                    MongoDB Atlas Database Buffer
                   </h3>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -140,7 +140,7 @@ export const DatabaseBufferModal: React.FC<DatabaseBufferModalProps> = ({
                   </span>
                 </div>
                 <p className="text-xs font-mono text-slate-400">
-                  Collection: <code className="text-emerald-300">dispatch_messages</code> · Prisma ORM (MongoDB Provider)
+                  Database: <code className="text-emerald-300">portfolio_nexus</code> · Collection: <code className="text-emerald-300">dispatch_messages</code>
                 </p>
               </div>
             </div>
@@ -209,7 +209,7 @@ export const DatabaseBufferModal: React.FC<DatabaseBufferModalProps> = ({
                 <p className="text-xs text-slate-500 max-w-sm mx-auto font-sans">
                   {searchQuery
                     ? 'Try clearing the search query to view all messages.'
-                    : 'Submit a message through the Dispatch Message Buffer form to test the Prisma SQLite write flow.'}
+                    : 'Submit a message through the Dispatch Message Buffer form to test the MongoDB Atlas write flow.'}
                 </p>
               </div>
             ) : (
@@ -334,7 +334,7 @@ export const DatabaseBufferModal: React.FC<DatabaseBufferModalProps> = ({
           <div className="p-4 bg-white/[0.02] border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-slate-400">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Prisma Client v5 · MongoDB Provider (Collection: dispatch_messages)</span>
+              <span>Official MongoDB Driver · Database: portfolio_nexus (Collection: dispatch_messages)</span>
             </div>
             <button
               onClick={onClose}

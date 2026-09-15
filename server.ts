@@ -1,21 +1,21 @@
 import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
-import { PrismaClient } from "@prisma/client";
+import { MongoClient, ObjectId, Collection } from "mongodb";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 // Clean and normalize MongoDB connection URL
 // Handles missing database names (Atlas default URL omits db name) and cleans invalid query parameters
-function cleanAndNormalizeMongoUrl(rawUrl?: string, fallbackDb = "portfolio"): string {
+function cleanAndNormalizeMongoUrl(rawUrl?: string, fallbackDb = "portfolio_nexus"): string {
   if (!rawUrl) return "";
   try {
     const parsed = new URL(rawUrl);
     let dbName = fallbackDb;
 
     // Check if the user entered the database name in a query parameter like ?Portfolio_Nexus=Cluster0
-    for (const [key, value] of parsed.searchParams.entries()) {
+    for (const [key] of parsed.searchParams.entries()) {
       const lower = key.toLowerCase();
       if (lower.includes("portfolio") || lower.includes("nexus") || lower.includes("dgit")) {
         dbName = key.toLowerCase().replace(/[^a-z0-9_]/g, "_");
@@ -69,20 +69,6 @@ function cleanAndNormalizeMongoUrl(rawUrl?: string, fallbackDb = "portfolio"): s
   }
 }
 
-if (process.env.DATABASE_URL) {
-  process.env.DATABASE_URL = cleanAndNormalizeMongoUrl(process.env.DATABASE_URL, "portfolio_nexus");
-}
-
-const prisma = new PrismaClient({
-  datasources: process.env.DATABASE_URL
-    ? {
-        db: {
-          url: process.env.DATABASE_URL,
-        },
-      }
-    : undefined,
-});
-
 const app = express();
 const PORT = 3000;
 
@@ -132,8 +118,31 @@ const inMemoryMongoCollection: MongoDispatchDocument[] = [
   },
 ];
 
+let mongoClient: MongoClient | null = null;
 let isMongoClusterConnected = false;
 let lastCheckTime = 0;
+
+async function getMongoCollection(): Promise<Collection<any> | null> {
+  const rawUrl = process.env.DATABASE_URL;
+  if (!rawUrl || rawUrl.trim() === "") return null;
+
+  const connectionUrl = cleanAndNormalizeMongoUrl(rawUrl, "portfolio_nexus");
+  try {
+    if (!mongoClient) {
+      mongoClient = new MongoClient(connectionUrl, {
+        serverSelectionTimeoutMS: 5000,
+        connectTimeoutMS: 5000,
+      });
+      await mongoClient.connect();
+    }
+    const db = mongoClient.db("portfolio_nexus");
+    return db.collection("dispatch_messages");
+  } catch (err: any) {
+    console.warn("MongoDB client connection error:", err.message);
+    mongoClient = null;
+    return null;
+  }
+}
 
 async function checkMongoConnection(): Promise<boolean> {
   if (isMongoClusterConnected) return true;
@@ -149,19 +158,21 @@ async function checkMongoConnection(): Promise<boolean> {
   lastCheckTime = now;
 
   try {
-    const countPromise = prisma.dispatchMessage.count().then(() => true);
-    const timeoutPromise = new Promise<boolean>((_, reject) =>
-      setTimeout(() => reject(new Error("MongoDB connection timeout")), 8000)
-    );
-    await Promise.race([countPromise, timeoutPromise]);
+    const coll = await getMongoCollection();
+    if (!coll) {
+      isMongoClusterConnected = false;
+      return false;
+    }
+    await coll.countDocuments({}, { maxTimeMS: 5000 });
     isMongoClusterConnected = true;
-    console.log("Connected to MongoDB Atlas via Prisma ORM successfully.");
+    console.log("Connected to MongoDB Atlas via native MongoDB driver successfully.");
     return true;
   } catch (err: any) {
     console.warn(
-      `MongoDB remote cluster unreachable (${err.message}). Using resilient NoSQL Document Buffer compliant with Prisma schema.`
+      `MongoDB remote cluster unreachable (${err.message}). Using resilient NoSQL Document Buffer.`
     );
     isMongoClusterConnected = false;
+    mongoClient = null;
     return false;
   }
 }
@@ -171,7 +182,7 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-// Database & Prisma MongoDB status
+// Database & MongoDB Atlas status
 app.get("/api/database/status", async (req, res) => {
   const connected = await checkMongoConnection();
   const rawUrl = process.env.DATABASE_URL || "";
@@ -180,35 +191,45 @@ app.get("/api/database/status", async (req, res) => {
     : rawUrl;
 
   res.json({
-    database: "MongoDB (NoSQL)",
-    provider: "mongodb",
-    orm: "Prisma v5.22.0",
+    database: "MongoDB Atlas (NoSQL)",
+    provider: "Official MongoDB Driver",
+    databaseName: "portfolio_nexus",
     collection: "dispatch_messages",
     idFormat: "ObjectId (24-char hexadecimal)",
     connectedToCluster: connected,
     databaseUrl: maskedUrl,
-    activeStorage: connected ? "MongoDB Cluster (Atlas)" : "NoSQL Document Buffer (Prisma Model)",
+    activeStorage: connected ? "MongoDB Cluster (Atlas)" : "NoSQL Document Buffer (Native Fallback)",
   });
 });
 
-// Fetch all messages in the Prisma MongoDB collection
+// Fetch all messages in the MongoDB collection
 app.get("/api/dispatch", async (req, res) => {
   try {
     const connected = await checkMongoConnection();
     if (connected) {
       try {
-        const messages = await prisma.dispatchMessage.findMany({
-          orderBy: { createdAt: "desc" },
-        });
-        return res.json({
-          success: true,
-          database: "MongoDB (NoSQL)",
-          provider: "Prisma ORM",
-          collection: "dispatch_messages",
-          connectedToCluster: true,
-          count: messages.length,
-          data: messages,
-        });
+        const coll = await getMongoCollection();
+        if (coll) {
+          const rawDocs = await coll.find().sort({ createdAt: -1 }).toArray();
+          const messages = rawDocs.map((doc: any) => ({
+            id: doc._id?.toString() || doc.id,
+            name: doc.name,
+            email: doc.email,
+            subject: doc.subject,
+            message: doc.message,
+            userAgent: doc.userAgent,
+            createdAt: doc.createdAt,
+          }));
+          return res.json({
+            success: true,
+            database: "MongoDB (NoSQL)",
+            provider: "Official MongoDB Driver",
+            collection: "dispatch_messages",
+            connectedToCluster: true,
+            count: messages.length,
+            data: messages,
+          });
+        }
       } catch (dbErr: any) {
         console.warn("MongoDB query failed, falling back to document buffer:", dbErr.message);
         isMongoClusterConnected = false;
@@ -222,7 +243,7 @@ app.get("/api/dispatch", async (req, res) => {
     return res.json({
       success: true,
       database: "MongoDB (NoSQL)",
-      provider: "Prisma ORM",
+      provider: "Official MongoDB Driver",
       collection: "dispatch_messages",
       connectedToCluster: false,
       count: sortedDocs.length,
@@ -234,7 +255,7 @@ app.get("/api/dispatch", async (req, res) => {
   }
 });
 
-// Store new dispatch message in Prisma MongoDB
+// Store new dispatch message in MongoDB Atlas
 app.post("/api/dispatch", async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
@@ -247,25 +268,38 @@ app.post("/api/dispatch", async (req, res) => {
 
     const connected = await checkMongoConnection();
     if (connected) {
-      const record = await prisma.dispatchMessage.create({
-        data: {
-          name: String(name).trim(),
-          email: String(email).trim(),
-          subject: subject ? String(subject).trim() : "General Inquiry",
-          message: String(message).trim(),
-          userAgent: (req.headers["user-agent"] as string) || "Web Client",
-        },
-      });
+      try {
+        const coll = await getMongoCollection();
+        if (coll) {
+          const newEntry = {
+            name: String(name).trim(),
+            email: String(email).trim(),
+            subject: subject ? String(subject).trim() : "General Inquiry",
+            message: String(message).trim(),
+            userAgent: (req.headers["user-agent"] as string) || "Web Client",
+            createdAt: new Date(),
+          };
 
-      return res.status(201).json({
-        success: true,
-        database: "MongoDB (NoSQL)",
-        provider: "Prisma ORM",
-        collection: "dispatch_messages",
-        connectedToCluster: true,
-        message: "Transmission successfully inserted into MongoDB via Prisma",
-        data: record,
-      });
+          const insertResult = await coll.insertOne(newEntry);
+          const record = {
+            id: insertResult.insertedId.toString(),
+            ...newEntry,
+          };
+
+          return res.status(201).json({
+            success: true,
+            database: "MongoDB (NoSQL)",
+            provider: "Official MongoDB Driver",
+            collection: "dispatch_messages",
+            connectedToCluster: true,
+            message: "Transmission successfully inserted into MongoDB Atlas",
+            data: record,
+          });
+        }
+      } catch (insertErr: any) {
+        console.warn("MongoDB insert error, using fallback buffer:", insertErr.message);
+        isMongoClusterConnected = false;
+      }
     }
 
     // In-memory NoSQL document creation (generates valid MongoDB ObjectId)
@@ -283,14 +317,14 @@ app.post("/api/dispatch", async (req, res) => {
     return res.status(201).json({
       success: true,
       database: "MongoDB (NoSQL)",
-      provider: "Prisma ORM",
+      provider: "Official MongoDB Driver",
       collection: "dispatch_messages",
       connectedToCluster: false,
-      message: "Transmission recorded in Prisma MongoDB document buffer",
+      message: "Transmission recorded in MongoDB document buffer",
       data: newDoc,
     });
   } catch (error: any) {
-    console.error("Error creating dispatch message in Prisma MongoDB:", error);
+    console.error("Error creating dispatch message in MongoDB:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
@@ -302,14 +336,23 @@ app.delete("/api/dispatch/:id", async (req, res) => {
     const connected = await checkMongoConnection();
 
     if (connected) {
-      await prisma.dispatchMessage.delete({
-        where: { id },
-      });
-      return res.json({
-        success: true,
-        database: "MongoDB (NoSQL)",
-        message: "Document deleted from MongoDB via Prisma",
-      });
+      try {
+        const coll = await getMongoCollection();
+        if (coll) {
+          let filter: any = { _id: id };
+          if (ObjectId.isValid(id)) {
+            filter = { $or: [{ _id: new ObjectId(id) }, { _id: id }] };
+          }
+          await coll.deleteOne(filter);
+          return res.json({
+            success: true,
+            database: "MongoDB (NoSQL)",
+            message: "Document deleted from MongoDB Atlas",
+          });
+        }
+      } catch (delErr: any) {
+        console.warn("MongoDB delete error:", delErr.message);
+      }
     }
 
     const index = inMemoryMongoCollection.findIndex((d) => d.id === id);

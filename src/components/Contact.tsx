@@ -297,14 +297,14 @@ export const Contact: React.FC = () => {
                     onClick={() => setIsDbModalOpen(true)}
                     type="button"
                     className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-[11px] font-mono text-emerald-300 hover:text-white transition-all shadow-sm"
-                    title="Inspect messages in Prisma MongoDB NoSQL database"
+                    title="Inspect messages in MongoDB Atlas database"
                   >
                     <Database className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Prisma MongoDB ({dbCount})</span>
+                    <span>MongoDB Atlas ({dbCount})</span>
                   </button>
                   <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    MONGODB LIVE
+                    ATLAS LIVE
                   </span>
                 </div>
               </div>
@@ -320,10 +320,10 @@ export const Contact: React.FC = () => {
                   </div>
                   <div className="space-y-1">
                     <h4 className="text-lg font-bold text-white font-display">
-                      Transmission Recorded in Prisma MongoDB!
+                      Transmission Recorded in MongoDB Atlas!
                     </h4>
                     <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
-                      Your transmission document has been saved to the Prisma MongoDB NoSQL collection (<code className="text-emerald-300 font-mono">dispatch_messages</code>).
+                      Your transmission document has been saved to the MongoDB Atlas collection (<code className="text-emerald-300 font-mono">dispatch_messages</code>).
                     </p>
                   </div>
 
