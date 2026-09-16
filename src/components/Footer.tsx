@@ -120,16 +120,6 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href={profileData.codeforces}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-cyan-300 transition-colors"
-                >
-                  Codeforces: @satyajitzzz
-                </a>
-              </li>
-              <li>
-                <a
                   href={profileData.whatsappUrl}
                   target="_blank"
                   rel="noreferrer"

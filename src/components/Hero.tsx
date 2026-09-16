@@ -103,15 +103,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal, onOpenCertModal }
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
               <span>LeetCode @satyajitzzzzz</span>
             </a>
-            <a
-              href={profileData.codeforces}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ios-glass-pill px-3.5 py-1.5 rounded-full text-xs font-mono text-cyan-300 hover:text-white flex items-center gap-1.5 border border-cyan-400/30 hover:border-cyan-400 transition-colors"
-            >
-              <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Codeforces @satyajitzzz</span>
-            </a>
             <span className="ios-glass-pill px-3.5 py-1.5 rounded-full text-xs font-mono text-slate-400 border border-white/10">
               Roll: 23DGITM425
             </span>

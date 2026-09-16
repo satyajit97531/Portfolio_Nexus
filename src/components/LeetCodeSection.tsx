@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import {
-  Code,
   Terminal,
   ExternalLink,
   Sparkles,
   CheckCircle2,
   TrendingUp,
   BrainCircuit,
-  Award,
   Flame,
   Zap,
   Target
 } from 'lucide-react';
-import { leetCodeData, codeforcesData, profileData } from '../data/portfolioData';
+import { leetCodeData, profileData } from '../data/portfolioData';
 
 export const LeetCodeSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'both' | 'leetcode' | 'codeforces'>('both');
-
   return (
     <section id="cp" className="relative py-28 px-4 sm:px-6 cyber-grid">
       <div className="max-w-7xl mx-auto space-y-12 relative z-10">
@@ -27,16 +23,16 @@ export const LeetCodeSection: React.FC = () => {
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-xs font-mono text-amber-400 tracking-widest uppercase">
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-              <span>05 // ALGORITHMIC & COMPETITIVE ARENA</span>
+              <span>05 // ALGORITHMIC MASTERY & PROBLEM SOLVING</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display">
               Data Structures & <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-cyan-400">
-                Competitive Problem Solving
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-emerald-400">
+                LeetCode Solutions
               </span>
             </h2>
             <p className="text-slate-400 max-w-2xl text-sm sm:text-base leading-relaxed">
-              Active problem solving across LeetCode and Codeforces. Focused on optimal asymptotic runtime O(N), space-efficient in-place transformations, constructive algorithms, and rigorous edge-case handling.
+              Active problem solving on LeetCode focusing on optimal asymptotic runtime O(N), space-efficient in-place transformations, tree traversals, and rigorous edge-case validation.
             </p>
           </div>
 
@@ -45,31 +41,20 @@ export const LeetCodeSection: React.FC = () => {
               href={profileData.leetcode}
               target="_blank"
               rel="noopener noreferrer"
-              className="ios-glass-pill px-4 py-2 rounded-full text-xs font-mono text-amber-300 hover:text-white border border-amber-500/30 hover:border-amber-400 flex items-center gap-2 transition-all hover:bg-amber-500/10 shadow-[0_0_16px_rgba(245,158,11,0.2)]"
+              className="ios-glass-pill px-4 py-2.5 rounded-full text-xs font-mono text-amber-300 hover:text-white border border-amber-500/30 hover:border-amber-400 flex items-center gap-2 transition-all hover:bg-amber-500/10 shadow-[0_0_16px_rgba(245,158,11,0.2)]"
             >
               <Terminal className="w-3.5 h-3.5 text-amber-400" />
               <span>LeetCode @{leetCodeData.username}</span>
               <ExternalLink className="w-3 h-3" />
             </a>
-
-            <a
-              href={profileData.codeforces}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ios-glass-pill px-4 py-2 rounded-full text-xs font-mono text-cyan-300 hover:text-white border border-cyan-500/30 hover:border-cyan-400 flex items-center gap-2 transition-all hover:bg-cyan-500/10 shadow-[0_0_16px_rgba(6,182,212,0.2)]"
-            >
-              <Zap className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Codeforces @{codeforcesData.handle}</span>
-              <ExternalLink className="w-3 h-3" />
-            </a>
           </div>
         </div>
 
-        {/* Dual Platform Showcase Grid */}
+        {/* LeetCode Showcase Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Card 1: LeetCode Platform Card */}
-          <div className="lg:col-span-6 flex flex-col">
+          {/* Main Card: LeetCode Platform Card */}
+          <div className="lg:col-span-7 flex flex-col">
             <div className="ios-glass-card rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6 flex-1 flex flex-col justify-between">
               <div className="space-y-6">
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
@@ -83,7 +68,7 @@ export const LeetCodeSection: React.FC = () => {
                         <span className="text-[11px] font-mono text-amber-400 font-normal">@{leetCodeData.username}</span>
                       </h3>
                       <p className="text-xs font-mono text-slate-400">
-                        {leetCodeData.stats.totalSolved}+ Algorithmic Problems Mastered
+                        {leetCodeData.stats.totalSolved}+ Problems Solved · {leetCodeData.stats.acceptanceRate} Acceptance
                       </p>
                     </div>
                   </div>
@@ -126,10 +111,10 @@ export const LeetCodeSection: React.FC = () => {
                 {/* Focus Areas Progress */}
                 <div className="space-y-3">
                   <div className="text-xs font-mono text-slate-300 flex items-center justify-between">
-                    <span>Key DSA Competencies</span>
+                    <span>Key DSA Topic Distribution</span>
                     <span className="text-amber-400 text-[11px]">{leetCodeData.stats.acceptanceRate} Acc.</span>
                   </div>
-                  {leetCodeData.focusAreas.slice(0, 4).map((area, idx) => (
+                  {leetCodeData.focusAreas.map((area, idx) => (
                     <div key={idx} className="space-y-1">
                       <div className="flex justify-between text-xs font-mono">
                         <span className="text-slate-400">{area.name}</span>
@@ -157,96 +142,78 @@ export const LeetCodeSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="w-full py-3 rounded-full bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 hover:text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 border border-amber-500/30 transition-all shadow-[0_0_15px_rgba(245,158,11,0.15)]"
                 >
-                  <span>Inspect Full LeetCode Profile</span>
+                  <span>Inspect Full LeetCode Profile (@{leetCodeData.username})</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Card 2: Codeforces Platform Card */}
-          <div className="lg:col-span-6 flex flex-col">
-            <div className="ios-glass-card rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6 flex-1 flex flex-col justify-between">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-bold text-xl">
-                      🏆
-                    </div>
+          {/* Side Card: Algorithmic Paradigms & Core Competencies */}
+          <div className="lg:col-span-5 flex flex-col space-y-4">
+            <div className="ios-glass-card rounded-3xl p-6 sm:p-8 border border-white/10 space-y-5 flex-1 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 border-b border-white/[0.08] pb-4">
+                  <div className="w-10 h-10 rounded-xl bg-violet-500/20 border border-violet-500/40 flex items-center justify-center text-violet-400">
+                    <BrainCircuit className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-white font-display">
+                      Algorithmic Core Principles
+                    </h3>
+                    <p className="text-xs font-mono text-slate-400">
+                      Standard Engineering Methodologies
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <div>
-                      <h3 className="text-lg font-bold text-white font-display flex items-center gap-2">
-                        <span>Codeforces Arena</span>
-                        <span className="text-[11px] font-mono text-cyan-400 font-normal">@{codeforcesData.handle}</span>
-                      </h3>
-                      <p className="text-xs font-mono text-slate-400">
-                        {codeforcesData.rank} · Active Competitor
+                      <h4 className="text-xs font-bold text-white font-display">Time Complexity Optimization</h4>
+                      <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5">
+                        Focusing on reducing brute-force O(N²) quadratic loops to linear O(N) or logarithmic O(log N) operations using hash sets, binary search, and frequency tables.
                       </p>
                     </div>
                   </div>
 
-                  <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
-                    Contest Participant
-                  </span>
-                </div>
-
-                {/* Problem Solving & Focus Stats */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="bg-white/[0.03] p-3.5 rounded-2xl border border-white/[0.06] text-center">
-                    <div className="text-2xl font-black text-emerald-400 font-mono">
-                      {codeforcesData.problemsSolved}+
-                    </div>
-                    <div className="text-[10px] text-slate-400 font-mono uppercase mt-1">
-                      Problems Solved
+                  <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-start gap-3">
+                    <TrendingUp className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs font-bold text-white font-display">Space-Efficient Transformations</h4>
+                      <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5">
+                        Prioritizing in-place array manipulation, pointer reversals, and sliding window boundaries to minimize memory allocations.
+                      </p>
                     </div>
                   </div>
 
-                  <div className="bg-white/[0.03] p-3.5 rounded-2xl border border-white/[0.06] text-center sm:col-span-2">
-                    <div className="text-base sm:text-lg font-bold text-cyan-300 font-display truncate">
-                      {codeforcesData.primaryTopic}
-                    </div>
-                    <div className="text-[10px] text-slate-400 font-mono uppercase mt-1">
-                      Core Paradigms & Technique
+                  <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-start gap-3">
+                    <Target className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs font-bold text-white font-display">Edge-Case Verification</h4>
+                      <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5">
+                        Thorough testing on empty sequences, negative bounds, duplicate elements, single-node trees, and boundary conditions.
+                      </p>
                     </div>
                   </div>
-                </div>
 
-                {/* Codeforces Problem Taxonomy */}
-                <div className="space-y-3">
-                  <div className="text-xs font-mono text-slate-300 flex items-center justify-between">
-                    <span>Competitive Problem Taxonomy</span>
-                    <span className="text-cyan-400 text-[11px]">{codeforcesData.contests} Contests</span>
-                  </div>
-                  {codeforcesData.tags.map((tag, idx) => (
-                    <div key={idx} className="space-y-1">
-                      <div className="flex justify-between text-xs font-mono">
-                        <span className="text-slate-400">{tag.name}</span>
-                        <span className="text-cyan-300">{tag.count} Solved</span>
-                      </div>
-                      <div className="w-full h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${Math.min(100, (tag.count / 18) * 100)}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.8, delay: idx * 0.1 }}
-                          className="h-full rounded-full"
-                          style={{ backgroundColor: tag.color }}
-                        />
-                      </div>
+                  <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-start gap-3">
+                    <Sparkles className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs font-bold text-white font-display">Clean, Readable Code</h4>
+                      <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5">
+                        Writing modular functions with self-documenting naming, typed variables, and disciplined branching logic.
+                      </p>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/[0.08]">
-                <a
-                  href={profileData.codeforces}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 hover:text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 border border-cyan-500/30 transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)]"
-                >
-                  <span>Inspect Codeforces Profile (@{codeforcesData.handle})</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+              <div className="pt-2 text-center">
+                <span className="text-[11px] font-mono text-slate-400">
+                  Total Solved: <strong className="text-white">50+ LeetCode problems</strong> across 5 core topics
+                </span>
               </div>
             </div>
           </div>

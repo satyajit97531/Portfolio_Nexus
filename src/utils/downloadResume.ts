@@ -73,19 +73,112 @@ export function generateClientSidePdf(): void {
   doc.setTextColor(...textMuted);
   doc.text('JANAKPURI, NEW DELHI, INDIA · DELHI GLOBAL INSTITUTE OF TECHNOLOGY (DGIT) · MAHARSHI DAYANAND UNIVERSITY (MDU)', pageWidth / 2, y, { align: 'center' });
 
-  // Contact Row with Clean Formatting
+  // Vector Icon Drawing Helpers for Contact Header
+  const drawPhoneIcon = (x: number, currentY: number) => {
+    doc.saveGraphicsState();
+    doc.setFillColor(5, 150, 105);
+    doc.roundedRect(x, currentY - 7, 6, 8, 1, 1, 'F');
+    doc.setFillColor(255, 255, 255);
+    doc.rect(x + 1, currentY - 6, 4, 5, 'F');
+    doc.setFillColor(5, 150, 105);
+    doc.circle(x + 3, currentY - 0.5, 0.4, 'F');
+    doc.restoreGraphicsState();
+  };
+
+  const drawGithubIcon = (x: number, currentY: number) => {
+    doc.saveGraphicsState();
+    doc.setFillColor(36, 41, 47);
+    doc.circle(x + 3.5, currentY - 3, 3.8, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(4.5);
+    doc.text('GH', x + 3.5, currentY - 1.5, { align: 'center' });
+    doc.restoreGraphicsState();
+  };
+
+  const drawLinkedinIcon = (x: number, currentY: number) => {
+    doc.saveGraphicsState();
+    doc.setFillColor(0, 119, 181);
+    doc.roundedRect(x, currentY - 7, 7.5, 7.5, 1.2, 1.2, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(5);
+    doc.text('in', x + 3.75, currentY - 1.5, { align: 'center' });
+    doc.restoreGraphicsState();
+  };
+
+  const drawEmailIcon = (x: number, currentY: number) => {
+    doc.saveGraphicsState();
+    doc.setDrawColor(234, 67, 53);
+    doc.setFillColor(234, 67, 53);
+    doc.setLineWidth(0.65);
+    doc.roundedRect(x, currentY - 6.5, 8.5, 6, 0.8, 0.8, 'S');
+    doc.line(x, currentY - 6.5, x + 4.25, currentY - 2.8);
+    doc.line(x + 8.5, currentY - 6.5, x + 4.25, currentY - 2.8);
+    doc.restoreGraphicsState();
+  };
+
+  const drawLeetcodeIcon = (x: number, currentY: number) => {
+    doc.saveGraphicsState();
+    doc.setFillColor(255, 161, 22);
+    doc.roundedRect(x, currentY - 7, 8, 7.5, 1.2, 1.2, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(4.5);
+    doc.text('</>', x + 4, currentY - 1.5, { align: 'center' });
+    doc.restoreGraphicsState();
+  };
+
+  // Contact Row 1 with Distinct Vector Icons
   y += 14;
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8.5);
-  doc.setTextColor(...textDark);
-  const contactRow1 = '+91 8076522382    satyajit97531    in satyajit-samanta-07a461385    satyajit97531@gmail.com';
-  doc.text(contactRow1, pageWidth / 2, y, { align: 'center' });
 
+  const itemsRow1 = [
+    { icon: drawPhoneIcon, iconW: 6, text: '+91 8076522382', link: 'tel:+918076522382' },
+    { icon: drawGithubIcon, iconW: 7, text: 'satyajit97531', link: 'https://github.com/satyajit97531' },
+    { icon: drawLinkedinIcon, iconW: 7.5, text: 'in satyajit-samanta-07a461385', link: 'https://linkedin.com/in/satyajit-samanta-07a461385' },
+    { icon: drawEmailIcon, iconW: 8.5, text: 'satyajit97531@gmail.com', link: 'mailto:satyajit97531@gmail.com' },
+  ];
+
+  const gap = 13;
+  const spaceAfterIcon = 3.5;
+  let totalW = 0;
+  itemsRow1.forEach((item, i) => {
+    const textW = doc.getTextWidth(item.text);
+    const itemW = item.iconW + spaceAfterIcon + textW;
+    totalW += itemW;
+    if (i > 0) totalW += gap;
+  });
+
+  let curX = (pageWidth - totalW) / 2;
+  itemsRow1.forEach((item) => {
+    item.icon(curX, y);
+    curX += item.iconW + spaceAfterIcon;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(...textDark);
+    doc.text(item.text, curX, y);
+    const textW = doc.getTextWidth(item.text);
+    if (item.link) {
+      doc.link(curX, y - 7, textW, 9, { url: item.link });
+    }
+    curX += textW + gap;
+  });
+
+  // Contact Row 2 with LeetCode Icon
   y += 12;
+  const leetcodeText = 'LeetCode: satyajitzzzzz (50+ Solved: 30E/15M/5H)';
+  doc.setFont('helvetica', 'normal');
   doc.setFontSize(8.2);
+  const lcTextW = doc.getTextWidth(leetcodeText);
+  const lcIconW = 8;
+  const lcTotalW = lcIconW + spaceAfterIcon + lcTextW;
+  const lcX = (pageWidth - lcTotalW) / 2;
+  drawLeetcodeIcon(lcX, y);
   doc.setTextColor(...textDark);
-  const contactRow2 = '</> LeetCode: satyajitzzzzz (50+ Solved: 30E/15M/5H)      Codeforces: satyajitzzz (35+ Problems Solved)';
-  doc.text(contactRow2, pageWidth / 2, y, { align: 'center' });
+  doc.text(leetcodeText, lcX + lcIconW + spaceAfterIcon, y);
+  doc.link(lcX, y - 7, lcTotalW, 9, { url: 'https://leetcode.com/u/satyajitzzzzz' });
 
   // Top Horizontal Divider
   y += 11;
@@ -189,7 +282,7 @@ export function generateClientSidePdf(): void {
 
   printSkillItem('Full-Stack', 'Next.js (App Router, SSR), React 19, Node.js, Express.js, MongoDB, TypeScript, JavaScript, Tailwind CSS');
   printSkillItem('Mobile & AI', 'Swift, Xcode, iOS SDK (MVC, AutoLayout), Local Ollama AI (Llama, Mistral), JWT Authentication');
-  printSkillItem('Problem Solving', 'LeetCode (@satyajitzzzzz, 50+ Solved: 30E/15M/5H), Codeforces (@satyajitzzz, 35+ Problems Solved), DSA Intermediate');
+  printSkillItem('Problem Solving', 'LeetCode (@satyajitzzzzz, 50+ Solved: 30E/15M/5H), Data Structures & Algorithms Intermediate');
   printSkillItem('Tools & Design', 'Figma UI/UX Prototyping, Git, GitHub, VS Code, Postman, Leaflet Maps, REST APIs');
 
   y += 5;

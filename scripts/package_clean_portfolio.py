@@ -107,7 +107,7 @@ Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU
 - **Local AI & MERN**: Architecture conditioned for Ollama (Llama/Mistral) local models
 - **Mobile Engineering**: Native iOS Architecture & Swift
 - **Design System**: Atomic UI components engineered in Figma (Games 24 storefront)
-- **Competitive Programming**: LeetCode (@satyajitzzzzz, 50+ Solved) & Codeforces (@satyajitzzz, 35+ Solved)
+- **Competitive Programming**: LeetCode (@satyajitzzzzz, 50+ Solved)
 - **Resume Assets**:
   - `public/Satyajit_Samanta_Resume.pdf` (Latest single-page applicant-ready PDF)
   - `public/Satyajit_Samanta_Resume.html` (Standalone responsive HTML resume)
@@ -119,7 +119,6 @@ Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU
 - GitHub: https://github.com/satyajit97531
 - LinkedIn: https://www.linkedin.com/in/satyajit-samanta-07a461385/
 - LeetCode: https://leetcode.com/u/satyajitzzzzz/
-- Codeforces: https://codeforces.com/profile/satyajitzzz
 """
     with open(os.path.join(bundle_dir, 'README.md'), 'w', encoding='utf-8') as rf:
         rf.write(readme_content)

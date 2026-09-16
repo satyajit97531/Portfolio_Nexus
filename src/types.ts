@@ -79,7 +79,6 @@ export interface ProfileData {
   github: string;
   linkedin: string;
   leetcode: string;
-  codeforces: string;
   bio: string;
   careerObjective: string;
 }

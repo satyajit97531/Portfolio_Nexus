@@ -18,8 +18,7 @@ export const profileData: ProfileData = {
   github: "https://github.com/satyajit97531",
   linkedin: "https://www.linkedin.com/in/satyajit-samanta-07a461385/",
   leetcode: "https://leetcode.com/u/satyajitzzzzz/",
-  codeforces: "https://codeforces.com/profile/satyajitzzz",
-  bio: "B.Tech Computer Science student at Delhi Global Institute of Technology (DGIT), affiliated with Maharshi Dayanand University. Specialized in Full-Stack MERN and Next.js development, local AI model integration with Ollama, and native iOS application engineering. Passionate about systems architecture, clean design systems in Figma, and algorithmic problem-solving on LeetCode & Codeforces.",
+  bio: "B.Tech Computer Science student at Delhi Global Institute of Technology (DGIT), affiliated with Maharshi Dayanand University. Specialized in Full-Stack MERN and Next.js development, local AI model integration with Ollama, and native iOS application engineering. Passionate about systems architecture, clean design systems in Figma, and algorithmic problem-solving on LeetCode.",
   careerObjective: "Motivated B.Tech Computer Science student with a strong foundation in Full Stack Development (MERN, Next.js), Ollama AI integration, and iOS app development. Seeking an engineering or internship opportunity to build scalable, secure, and user-centric web & mobile solutions."
 };
 
@@ -429,21 +428,4 @@ export const leetCodeData = {
     totalSolved: 50,
     acceptanceRate: "76.8%"
   }
-};
-
-export const codeforcesData = {
-  handle: "satyajitzzz",
-  profileUrl: "https://codeforces.com/profile/satyajitzzz",
-  title: "Competitive Programmer",
-  platform: "Codeforces",
-  rank: "Algorithmic Problem Solver",
-  contests: 14,
-  problemsSolved: 35,
-  primaryTopic: "Greedy & Implementation",
-  tags: [
-    { name: "Greedy Algorithms", count: 18, color: "#38bdf8" },
-    { name: "Implementation & Simulation", count: 14, color: "#10b981" },
-    { name: "Math & Constructive Logic", count: 8, color: "#818cf8" },
-    { name: "Two Pointers & Brute Force", count: 5, color: "#f59e0b" }
-  ]
 };

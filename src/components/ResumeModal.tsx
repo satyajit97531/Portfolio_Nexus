@@ -9,9 +9,12 @@ import {
   Github,
   Linkedin,
   FileText,
-  Award
+  Award,
+  Download,
+  Code2
 } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
+import { triggerResumeDownload } from '../utils/downloadResume';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -69,6 +72,15 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
 
             <div className="flex items-center gap-2">
               <button
+                onClick={triggerResumeDownload}
+                className="px-3.5 py-1.5 rounded-full bg-sky-500/20 hover:bg-sky-500/30 text-sky-200 hover:text-white border border-sky-500/40 text-xs font-mono flex items-center gap-1.5 transition-colors shadow-[0_0_12px_rgba(56,189,248,0.2)]"
+                title="Download ATS-Optimized Single Page Resume PDF"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download PDF</span>
+              </button>
+
+              <button
                 onClick={onClose}
                 className="p-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-slate-400 hover:text-white transition-colors"
                 aria-label="Close modal"
@@ -93,29 +105,54 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                 JANAKPURI, NEW DELHI, INDIA · DELHI GLOBAL INSTITUTE OF TECHNOLOGY (DGIT) · MAHARSHI DAYANAND UNIVERSITY (MDU)
               </div>
 
-              {/* Contact rows */}
-              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-slate-300 pt-1">
-                <span className="flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-emerald-400" />
-                  +91 8076522382
+              {/* Contact rows with distinct, visible icons */}
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs text-slate-300 pt-1">
+                <span className="inline-flex items-center gap-1.5 text-slate-200">
+                  <Phone className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span>+91 8076522382</span>
                 </span>
-                <a href={profileData.github} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-sky-400 hover:underline">
-                  <Github className="w-3.5 h-3.5" /> satyajit97531
+                <a
+                  href={profileData.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white hover:underline transition-colors"
+                  title="GitHub Profile"
+                >
+                  <Github className="w-3.5 h-3.5 text-slate-100 shrink-0" />
+                  <span>satyajit97531</span>
                 </a>
-                <a href={profileData.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-sky-400 hover:underline">
-                  <Linkedin className="w-3.5 h-3.5" /> in satyajit-samanta-07a461385
+                <a
+                  href={profileData.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sky-400 hover:underline transition-colors"
+                  title="LinkedIn Profile"
+                >
+                  <Linkedin className="w-3.5 h-3.5 text-[#0077b5] shrink-0 fill-[#0077b5]" />
+                  <span>in satyajit-samanta-07a461385</span>
                 </a>
-                <a href="mailto:satyajit97531@gmail.com" className="flex items-center gap-1 text-slate-200 hover:underline">
-                  <Mail className="w-3.5 h-3.5 text-violet-400" /> satyajit97531@gmail.com
+                <a
+                  href="mailto:satyajit97531@gmail.com"
+                  className="inline-flex items-center gap-1.5 text-rose-300 hover:text-rose-200 hover:underline transition-colors"
+                  title="Send Gmail"
+                >
+                  <Mail className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+                  <span>satyajit97531@gmail.com</span>
                 </a>
               </div>
 
               <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs text-slate-400 pt-0.5">
-                <span>
-                  &lt;/&gt; LeetCode: <a href={profileData.leetcode} target="_blank" rel="noreferrer" className="text-amber-400 hover:underline font-mono">satyajitzzzzz (50+ Solved: 30E/15M/5H)</a>
-                </span>
-                <span>
-                  Codeforces: <a href={profileData.codeforces} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline font-mono">satyajitzzz (35+ Problems Solved)</a>
+                <span className="inline-flex items-center gap-1.5 font-mono">
+                  <Code2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span>LeetCode:</span>
+                  <a
+                    href={profileData.leetcode}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-amber-400 hover:underline"
+                  >
+                    satyajitzzzzz (50+ Solved: 30E/15M/5H)
+                  </a>
                 </span>
               </div>
             </div>
@@ -181,7 +218,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                   <strong className="text-white">Mobile & AI:</strong> Swift, Xcode, iOS SDK (MVC, AutoLayout), Local Ollama AI (Llama, Mistral), JWT Authentication
                 </li>
                 <li>
-                  <strong className="text-white">Problem Solving:</strong> LeetCode (@satyajitzzzzz, 50+ Solved: 30E/15M/5H), Codeforces (@satyajitzzz, 35+ Problems Solved), DSA Intermediate
+                  <strong className="text-white">Problem Solving:</strong> LeetCode (@satyajitzzzzz, 50+ Solved: 30E/15M/5H), Data Structures & Algorithms Intermediate
                 </li>
                 <li>
                   <strong className="text-white">Tools & Design:</strong> Figma UI/UX Prototyping, Git, GitHub, VS Code, Postman, Leaflet Maps, REST APIs
@@ -327,6 +364,13 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
               Verified Candidate Profile · Roll: 23DGITM425
             </span>
             <div className="flex items-center gap-2">
+              <button
+                onClick={triggerResumeDownload}
+                className="px-4 py-2 rounded-full bg-sky-500/20 hover:bg-sky-500/30 text-sky-200 hover:text-white border border-sky-500/40 font-mono text-xs flex items-center gap-1.5 transition-colors shadow-[0_0_12px_rgba(56,189,248,0.2)]"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download PDF</span>
+              </button>
               <button
                 onClick={onClose}
                 className="px-5 py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.12] text-white font-mono text-xs transition-colors"

@@ -217,12 +217,12 @@ export const Contact: React.FC = () => {
                 <div className="text-[11px] font-mono text-slate-400 uppercase">
                   Connected Engineering Networks:
                 </div>
-                <div className="grid grid-cols-2 gap-2 font-mono text-xs">
+                <div className="grid grid-cols-3 gap-2 font-mono text-xs">
                   <a
                     href={profileData.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ios-glass-pill p-2.5 rounded-2xl text-slate-300 hover:text-white flex items-center gap-2"
+                    className="ios-glass-pill p-2.5 rounded-2xl text-slate-300 hover:text-white flex items-center justify-center gap-1.5"
                   >
                     <Linkedin className="w-4 h-4 text-sky-400 shrink-0" />
                     <span className="truncate">LinkedIn</span>
@@ -232,7 +232,7 @@ export const Contact: React.FC = () => {
                     href={profileData.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ios-glass-pill p-2.5 rounded-2xl text-slate-300 hover:text-white flex items-center gap-2"
+                    className="ios-glass-pill p-2.5 rounded-2xl text-slate-300 hover:text-white flex items-center justify-center gap-1.5"
                   >
                     <Github className="w-4 h-4 text-violet-400 shrink-0" />
                     <span className="truncate">GitHub</span>
@@ -242,20 +242,10 @@ export const Contact: React.FC = () => {
                     href={profileData.leetcode}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ios-glass-pill p-2.5 rounded-2xl text-slate-300 hover:text-white flex items-center gap-2"
+                    className="ios-glass-pill p-2.5 rounded-2xl text-slate-300 hover:text-white flex items-center justify-center gap-1.5"
                   >
                     <ExternalLink className="w-4 h-4 text-amber-400 shrink-0" />
                     <span className="truncate">LeetCode</span>
-                  </a>
-
-                  <a
-                    href={profileData.codeforces}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ios-glass-pill p-2.5 rounded-2xl text-slate-300 hover:text-white flex items-center gap-2"
-                  >
-                    <Sparkles className="w-4 h-4 text-cyan-400 shrink-0" />
-                    <span className="truncate">Codeforces</span>
                   </a>
                 </div>
               </div>

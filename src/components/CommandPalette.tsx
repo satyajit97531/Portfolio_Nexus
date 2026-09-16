@@ -234,16 +234,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         window.open(profileData.leetcode, '_blank');
         onClose();
       }
-    },
-    {
-      id: 'act-codeforces',
-      label: 'Open Codeforces Profile (@satyajitzzz)',
-      category: 'External Links',
-      icon: Sparkles,
-      action: () => {
-        window.open(profileData.codeforces, '_blank');
-        onClose();
-      }
     }
   ];
 
