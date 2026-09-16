@@ -79,227 +79,243 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
           </div>
 
           {/* Printable Resume Content */}
-          <div className="p-6 sm:p-10 max-h-[80vh] overflow-y-auto space-y-8 bg-[#0b0f19] text-slate-200 font-sans print:bg-white print:text-black print:p-0">
+          <div className="p-6 sm:p-10 max-h-[80vh] overflow-y-auto space-y-6 bg-[#0b0f19] text-slate-200 font-sans print:bg-white print:text-black print:p-0">
             
-            {/* Top Resume Header */}
-            <div className="border-b border-white/10 pb-6 flex flex-col sm:flex-row sm:items-start justify-between gap-6">
-              <div className="space-y-1">
-                <h1 className="text-3xl font-extrabold text-white font-display uppercase tracking-tight">
-                  {profileData.name}
-                </h1>
-                <div className="text-sm font-mono text-violet-400">
-                  B.Tech in Computer Science and Engineering
-                </div>
-                <div className="text-xs font-mono text-slate-400 pt-1">
-                  Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU)
-                </div>
-                <div className="text-xs font-mono text-slate-400">
-                  Batch: 2023–2027 | Semester: 7th | Roll No: <strong className="text-slate-200">23DGITM425</strong>
-                </div>
+            {/* Centered Resume Header */}
+            <div className="border-b border-white/10 pb-5 text-center space-y-2">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display uppercase tracking-wider">
+                Satyajit Samanta
+              </h1>
+              <div className="text-xs sm:text-sm font-semibold text-slate-200 tracking-wide uppercase">
+                B.Tech in Computer Science & Engineering | Full-Stack & iOS Developer
+              </div>
+              <div className="text-[11px] text-slate-400 font-normal">
+                JANAKPURI, NEW DELHI, INDIA · DELHI GLOBAL INSTITUTE OF TECHNOLOGY (DGIT) · MAHARSHI DAYANAND UNIVERSITY (MDU)
               </div>
 
-              <div className="space-y-1.5 text-xs font-mono text-slate-300">
-                <div className="flex items-center gap-2">
+              {/* Contact rows */}
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-slate-300 pt-1">
+                <span className="flex items-center gap-1.5">
                   <Phone className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>+91 8076522382</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-violet-400" />
-                  <span>satyajit97531@gmail.com</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-sky-400" />
-                  <span>Janakpuri / Sagarpur, New Delhi, India</span>
-                </div>
-                <div className="flex flex-wrap items-center gap-3 pt-1 text-[11px]">
-                  <a href={profileData.github} target="_blank" rel="noreferrer" className="text-sky-400 hover:underline flex items-center gap-1">
-                    <Github className="w-3 h-3" /> GitHub
-                  </a>
-                  <a href={profileData.linkedin} target="_blank" rel="noreferrer" className="text-sky-400 hover:underline flex items-center gap-1">
-                    <Linkedin className="w-3 h-3" /> LinkedIn
-                  </a>
-                  <a href={profileData.leetcode} target="_blank" rel="noreferrer" className="text-amber-400 hover:underline">
-                    LeetCode (@satyajitzzzzz)
-                  </a>
-                  <a href={profileData.codeforces} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">
-                    Codeforces (@satyajitzzz)
-                  </a>
-                </div>
+                  +91 8076522382
+                </span>
+                <a href={profileData.github} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-sky-400 hover:underline">
+                  <Github className="w-3.5 h-3.5" /> satyajit97531
+                </a>
+                <a href={profileData.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-sky-400 hover:underline">
+                  <Linkedin className="w-3.5 h-3.5" /> in satyajit-samanta-07a461385
+                </a>
+                <a href="mailto:satyajit97531@gmail.com" className="flex items-center gap-1 text-slate-200 hover:underline">
+                  <Mail className="w-3.5 h-3.5 text-violet-400" /> satyajit97531@gmail.com
+                </a>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs text-slate-400 pt-0.5">
+                <span>
+                  &lt;/&gt; LeetCode: <a href={profileData.leetcode} target="_blank" rel="noreferrer" className="text-amber-400 hover:underline font-mono">satyajitzzzzz (50+ Solved: 30E/15M/5H)</a>
+                </span>
+                <span>
+                  Codeforces: <a href={profileData.codeforces} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline font-mono">satyajitzzz (35+ Problems Solved)</a>
+                </span>
               </div>
             </div>
 
-            {/* Career Objective */}
+            {/* 1. Career Objective */}
             <div className="space-y-2">
-              <h2 className="text-xs font-mono uppercase text-violet-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-100 border-b border-white/20 pb-1">
                 Career Objective
               </h2>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed italic bg-white/[0.02] p-3 rounded-xl border border-white/[0.04]">
-                "{profileData.careerObjective}"
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Motivated B.Tech Computer Science student with a strong foundation in Full Stack Development (MERN, Next.js), Ollama AI Integration, and iOS app development. Seeking an engineering or internship opportunity to build scalable, secure, and user-centric web & mobile solutions.
               </p>
             </div>
 
-            {/* Education */}
+            {/* 2. Education */}
             <div className="space-y-3">
-              <h2 className="text-xs font-mono uppercase text-cyan-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-100 border-b border-white/20 pb-1">
                 Education
               </h2>
 
-              <div className="space-y-2">
-                <div className="flex flex-wrap items-center justify-between">
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <h3 className="text-sm font-bold text-white">
-                    Bachelor of Technology in Computer Science & Engineering (B.Tech CSE)
+                    Bachelor of Technology (B.Tech) – Computer Science & Engineering
                   </h3>
-                  <span className="text-xs font-mono text-cyan-300">2023 – 2027</span>
+                  <span className="text-xs font-semibold text-slate-200">2023 – 2027 (Ongoing)</span>
                 </div>
                 <div className="text-xs text-slate-400">
-                  Delhi Global Institute of Technology (DGIT), Maharshi Dayanand University (MDU), Haryana
+                  Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU), Haryana
                 </div>
-                <div className="text-xs text-slate-300">
-                  Semester: 7th | Roll No: 23DGITM425 | Core: Data Structures, Algorithms, DBMS, Operating Systems
-                </div>
+                <ul className="list-disc list-inside text-xs text-slate-300 space-y-0.5 pt-1">
+                  <li>Semester: 7th | University Roll No: <strong className="text-slate-200">23DGITM425</strong></li>
+                  <li>Core Subjects: Data Structures & Algorithms, Object-Oriented Programming, DBMS, OS, Computer Networks.</li>
+                </ul>
+              </div>
 
-                <div className="pt-2">
-                  <div className="flex flex-wrap items-center justify-between">
-                    <h3 className="text-sm font-bold text-white">
-                      Senior Secondary Education (Class XII & X)
-                    </h3>
-                    <span className="text-xs font-mono text-slate-400">Completed</span>
-                  </div>
-                  <div className="text-xs text-slate-400">
-                    Vinay Nagar Senior Secondary School, New Delhi
-                  </div>
+              <div className="space-y-1 pt-2">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="text-sm font-bold text-white">
+                    Senior Secondary & High School (CBSE)
+                  </h3>
+                  <span className="text-xs font-semibold text-slate-200">Completed</span>
                 </div>
+                <div className="text-xs text-slate-400">
+                  Vinay Nagar Senior Secondary School, New Delhi
+                </div>
+                <ul className="list-disc list-inside text-xs text-slate-300 space-y-0.5 pt-1">
+                  <li>Science Stream (Physics, Chemistry, Mathematics, Computer Science Fundamentals).</li>
+                </ul>
               </div>
             </div>
 
-            {/* Technical Skills & Problem Solving (Directly Under Education) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-              <div className="space-y-2">
-                <h2 className="text-xs font-mono uppercase text-violet-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
-                  Technical Skills & Arsenal
-                </h2>
-                <div className="text-xs text-slate-300 space-y-1.5">
-                  <div><strong>Development:</strong> MERN Stack (MongoDB, Express.js, React.js, Node.js), Next.js, HTML5, CSS3, JavaScript, TypeScript</div>
-                  <div><strong>Mobile & AI:</strong> Swift, iOS Development (Xcode, UIKit), Ollama (Local AI Chatbot)</div>
-                  <div><strong>Design & Tools:</strong> UI/UX Design, Figma, Wireframing, Git, GitHub, VS Code, Postman</div>
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <h2 className="text-xs font-mono uppercase text-emerald-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
-                  Problem Solving & Algorithmic
-                </h2>
-                <div className="text-xs text-slate-300 space-y-1.5">
-                  <div><strong>Problem Solving:</strong> LeetCode (@satyajitzzzzz, 50+ Solved: 30 Easy, 15 Med, 5 Hard), Codeforces (@satyajitzzz, 35+ Problems Solved), DSA Intermediate</div>
-                  <div><strong>Platform Metrics:</strong> LeetCode (50+ Solved: 30E / 15M / 5H), Codeforces (35+ Solved)</div>
-                </div>
-              </div>
+            {/* 3. Technical Skills & Problem Solving */}
+            <div className="space-y-2.5">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-100 border-b border-white/20 pb-1">
+                Technical Skills & Problem Solving
+              </h2>
+              <ul className="list-disc list-inside text-xs text-slate-300 space-y-1.5 leading-relaxed">
+                <li>
+                  <strong className="text-white">Full-Stack:</strong> Next.js (App Router, SSR), React 19, Node.js, Express.js, MongoDB, TypeScript, JavaScript, Tailwind CSS
+                </li>
+                <li>
+                  <strong className="text-white">Mobile & AI:</strong> Swift, Xcode, iOS SDK (MVC, AutoLayout), Local Ollama AI (Llama, Mistral), JWT Authentication
+                </li>
+                <li>
+                  <strong className="text-white">Problem Solving:</strong> LeetCode (@satyajitzzzzz, 50+ Solved: 30E/15M/5H), Codeforces (@satyajitzzz, 35+ Problems Solved), DSA Intermediate
+                </li>
+                <li>
+                  <strong className="text-white">Tools & Design:</strong> Figma UI/UX Prototyping, Git, GitHub, VS Code, Postman, Leaflet Maps, REST APIs
+                </li>
+              </ul>
             </div>
 
-            {/* Projects Section */}
-            <div className="space-y-4">
-              <h2 className="text-xs font-mono uppercase text-violet-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
-                Engineering Projects & Data Models
+            {/* 4. Technical Projects */}
+            <div className="space-y-3.5">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-slate-100 border-b border-white/20 pb-1">
+                Technical Projects
               </h2>
 
-              {/* Major Project */}
-              <div className="space-y-1.5">
-                <div className="flex flex-wrap items-center justify-between">
+              {/* Project 1 */}
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <h3 className="text-sm font-bold text-white">
-                    Major Project: Service Portal Application
+                    Service Portal Application (Major Project) | MERN Stack + Local Ollama AI
                   </h3>
-                  <span className="text-xs font-mono text-emerald-400">
-                    MERN Stack + Ollama AI (Chatbot Assistant)
-                  </span>
+                  <a
+                    href="https://github.com/satyajit97531/Service_Portal"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs text-sky-400 hover:underline"
+                  >
+                    github.com/satyajit97531/Service_Portal
+                  </a>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Developed a comprehensive health tracking and wellness platform with on-premise localized Ollama LLM assistant. Integrated a local model conditioned on <strong>45+ clinical and wellness Q&A pairs</strong>. Modeled <strong>5 MongoDB document schemas</strong> managing <strong>60+ synthetic biometric telemetry records</strong> (BMI curves, blood pressure, glucose logs). Features secure JWT authentication with 0% external cloud API data leakage.
-                </p>
+                <ul className="list-disc list-inside text-xs text-slate-300 space-y-1 leading-relaxed">
+                  <li>Architected full-stack portal with on-premise Ollama AI trained/conditioned with 45+ medical Q&A pairs.</li>
+                  <li>Modeled 5 MongoDB document schemas managing 60+ synthetic biometric telemetry records & vital trend histories.</li>
+                  <li>Implemented secure JWT authentication and sub-80ms queries with 0% external cloud data leakage or API fees.</li>
+                </ul>
               </div>
 
-              {/* Minor Project */}
-              <div className="space-y-1.5 pt-2">
-                <div className="flex flex-wrap items-center justify-between">
+              {/* Project 2 */}
+              <div className="space-y-1 pt-1.5">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <h3 className="text-sm font-bold text-white">
-                    Minor Project: Games 24
+                    Games 24 (Minor Project) | High-Fidelity Game Storefront Platform (Figma UI/UX)
                   </h3>
-                  <span className="text-xs font-mono text-rose-400">
-                    Figma, UI/UX Design & Interactive Prototyping
+                  <span className="text-xs text-slate-300 font-medium">
+                    Figma UI/UX & Prototyping
                   </span>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Designed a high-fidelity user interface for a digital game distribution platform similar to Steam and Epic Games. Architected catalog data models structuring <strong>40+ game title catalog items</strong>, <strong>12 genre taxonomies</strong>, <strong>35+ design tokens</strong>, and <strong>20+ reusable atomic UI components</strong> across <strong>10+ interactive flow screens</strong> with a streamlined 2-step checkout flow.
-                </p>
+                <ul className="list-disc list-inside text-xs text-slate-300 space-y-1 leading-relaxed">
+                  <li>Designed high-fidelity storefront modeling 40+ game title catalog items, 12 genre taxonomies, and 35+ design tokens.</li>
+                  <li>Engineered 20+ atomic UI components and tested an interactive 10+ screen prototype with a frictionless 2-step checkout flow.</li>
+                </ul>
               </div>
 
-              {/* Other Projects */}
-              <div className="space-y-1.5 pt-2">
-                <div className="flex flex-wrap items-center justify-between">
+              {/* Project 3 */}
+              <div className="space-y-1 pt-1.5">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <h3 className="text-sm font-bold text-white">
-                    Medi_Map & AuraSpace
+                    Medi_Map | Geospatial Clinic & Emergency Navigation | React, Leaflet, Node.js
                   </h3>
-                  <span className="text-xs font-mono text-sky-400">
-                    React.js, TypeScript, Geospatial APIs, REST
-                  </span>
+                  <a
+                    href="https://github.com/satyajit97531/Medi_Map"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs text-sky-400 hover:underline"
+                  >
+                    github.com/satyajit97531/Medi_Map
+                  </a>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Engineered Medi_Map's geospatial data model indexing <strong>50+ verified clinic coordinates</strong> and <strong>25+ emergency centers</strong> across 12 specialties with 2dsphere spatial indexing. Modeled AuraSpace's TypeScript workspace data schemas managing <strong>50+ document nodes</strong> and Product_Store catalog organizing <strong>45+ SKU inventory records</strong>.
-                </p>
+                <ul className="list-disc list-inside text-xs text-slate-300 space-y-1 leading-relaxed">
+                  <li>Constructed geospatial data model indexing 50+ verified clinic coordinates and 25+ emergency centers across 12 specialties.</li>
+                </ul>
+              </div>
+
+              {/* Project 4 */}
+              <div className="space-y-1 pt-1.5">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="text-sm font-bold text-white">
+                    AuraSpace & Product_Store | TypeScript, React 19, Express.js, Tailwind CSS
+                  </h3>
+                  <a
+                    href="https://github.com/satyajit97531/AuraSpace"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs text-sky-400 hover:underline"
+                  >
+                    github.com/satyajit97531/AuraSpace
+                  </a>
+                </div>
+                <ul className="list-disc list-inside text-xs text-slate-300 space-y-1 leading-relaxed">
+                  <li>Engineered TypeScript workspace models managing 50+ document nodes and Product_Store catalog with 45+ SKU records.</li>
+                </ul>
               </div>
             </div>
 
-            {/* Industry Experience & Certifications */}
-            <div className="space-y-3">
-              <h2 className="text-xs font-mono uppercase text-amber-400 tracking-wider font-bold border-b border-white/[0.08] pb-1 flex flex-wrap items-center justify-between gap-2">
-                <span>Industry Experience & Training</span>
+            {/* 5. Industry Training & Certifications */}
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-center justify-between border-b border-white/20 pb-1">
+                <h2 className="text-xs font-bold uppercase tracking-wider text-slate-100">
+                  Industry Training & Certifications
+                </h2>
                 <div className="flex items-center gap-3">
                   <a
                     href="https://sklztect.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-amber-300/80 hover:text-amber-200 hover:underline flex items-center gap-1 normal-case font-normal"
+                    className="text-xs text-sky-400 hover:underline flex items-center gap-1 font-normal"
                   >
                     <span>sklztect.com</span>
-                    <ExternalLink className="w-3 h-3 text-amber-400" />
+                    <ExternalLink className="w-3 h-3 text-sky-400" />
                   </a>
                   <button
                     onClick={onOpenCertModal}
-                    className="text-xs text-amber-300 hover:underline flex items-center gap-1 normal-case font-normal"
+                    className="text-xs text-amber-300 hover:underline flex items-center gap-1 font-normal"
                   >
-                    <Award className="w-3.5 h-3.5" />
+                    <Award className="w-3.5 h-3.5 text-amber-400" />
                     <span>View SKLZ TECT Certificate</span>
                   </button>
                 </div>
-              </h2>
+              </div>
 
-              <div className="space-y-1.5">
-                <div className="flex flex-wrap items-center justify-between">
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <h3 className="text-sm font-bold text-white">
-                    iOS Development Training & Internship | [SKLZ Tech / SKLZ TECT LLP]
+                    iOS Application Development Certification | SKLZ TECT LLP (sklztect.com)
                   </h3>
-                  <span className="text-xs font-mono text-slate-400">
+                  <span className="text-xs font-semibold text-slate-200">
                     June – August 2024 (8 Weeks)
                   </span>
                 </div>
-                <div className="text-xs font-mono text-amber-300">
-                  Held at Management Education & Research Institute (MERI), New Delhi · Certificate Awarded Aug 14, 2024
+                <div className="text-xs text-slate-400">
+                  Management Education & Research Institute (MERI), New Delhi | Credential: SKLZ-TECT-IOS-2024-SAMANTA
                 </div>
-                <ul className="list-disc list-inside text-xs text-slate-300 space-y-1 pt-1">
-                  <li>Mastered Swift programming and the Xcode environment for building native Apple mobile apps.</li>
-                  <li>Designed user interfaces in Figma and successfully implemented them into functional iOS layouts.</li>
-                  <li>Gained hands-on experience in mobile UI/UX principles, view hierarchies, and app lifecycle management.</li>
+                <ul className="list-disc list-inside text-xs text-slate-300 space-y-1 leading-relaxed pt-1">
+                  <li>Completed intensive 8-week corporate training in native iOS development using Swift and Xcode.</li>
+                  <li>Built responsive iOS view hierarchies conforming to Apple Human Interface Guidelines and MVC architectural patterns.</li>
                 </ul>
-              </div>
-            </div>
-
-            {/* Languages & Interests */}
-            <div className="space-y-2 pt-1">
-              <h2 className="text-xs font-mono uppercase text-slate-400 tracking-wider font-bold border-b border-white/[0.08] pb-1">
-                Languages & Interests
-              </h2>
-              <div className="text-xs text-slate-300 space-y-1">
-                <div><strong>Languages:</strong> English (Professional Proficiency), Hindi (Native)</div>
-                <div><strong>Interests & Hobbies:</strong> Web Design & Prototyping, Tech Architecture, High-Performance Computing & Hardware Optimization</div>
               </div>
             </div>
 

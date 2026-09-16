@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import fs from "fs";
 import { createServer as createViteServer } from "vite";
 import { MongoClient, ObjectId, Collection } from "mongodb";
 import dotenv from "dotenv";
@@ -395,6 +396,22 @@ app.delete("/api/dispatch/:id", async (req, res) => {
     console.error("Error deleting dispatch message:", error);
     res.status(500).json({ success: false, error: error.message });
   }
+});
+
+// Download Project ZIP endpoint (ensures fresh copy is delivered with attachment headers)
+app.get("/api/download-project-zip", (req, res) => {
+  const publicZip = path.join(process.cwd(), "public", "satyajit-samanta-portfolio.zip");
+  const distZip = path.join(process.cwd(), "dist", "satyajit-samanta-portfolio.zip");
+  const targetZip = fs.existsSync(publicZip) ? publicZip : (fs.existsSync(distZip) ? distZip : null);
+
+  if (!targetZip) {
+    return res.status(404).json({ success: false, error: "Project archive not ready yet." });
+  }
+
+  res.setHeader("Content-Disposition", 'attachment; filename="satyajit-samanta-portfolio.zip"');
+  res.setHeader("Content-Type", "application/zip");
+  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+  return res.sendFile(targetZip);
 });
 
 async function startServer() {

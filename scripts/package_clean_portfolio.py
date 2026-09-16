@@ -18,10 +18,14 @@ def create_clean_portfolio_zip():
     # 1. Copy required files and folders from workspace root
     files_to_copy = [
         'package.json',
+        'package-lock.json',
         'tsconfig.json',
         'vite.config.ts',
         'index.html',
-        'metadata.json'
+        'metadata.json',
+        'server.ts',
+        '.env.example',
+        '.gitignore'
     ]
 
     for f in files_to_copy:
@@ -35,6 +39,14 @@ def create_clean_portfolio_zip():
         os.path.join(bundle_dir, 'src'),
         ignore=shutil.ignore_patterns('*.tmp', '*.bak', '.DS_Store')
     )
+
+    # Copy scripts/ (resume generator)
+    scripts_dest = os.path.join(bundle_dir, 'scripts')
+    os.makedirs(scripts_dest, exist_ok=True)
+    for script_file in ['generate_resume_pdf.mjs', 'package_clean_portfolio.py']:
+        script_src = os.path.join(project_root, 'scripts', script_file)
+        if os.path.exists(script_src):
+            shutil.copy2(script_src, os.path.join(scripts_dest, script_file))
 
     # Copy public/ completely, BUT STRICTLY EXCLUDE ANY .ZIP FILES
     os.makedirs(os.path.join(bundle_dir, 'public'), exist_ok=True)
@@ -57,10 +69,10 @@ Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU
 ## 🚀 Quick Start Guide
 
 ### Prerequisites
-- Node.js (v18 or higher recommended)
+- Node.js (v18+ recommended)
 - npm or yarn
 
-### Installation
+### Installation & Launch
 1. Open terminal inside this folder:
    ```bash
    cd satyajit-samanta-portfolio
@@ -71,27 +83,39 @@ Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU
    npm install
    ```
 
-3. Start development server:
+3. Start development server (Full-stack Express + Vite):
    ```bash
    npm run dev
    ```
 
 4. Open `http://localhost:3000` in your browser.
 
-## 🛠️ Tech Stack & Features
-- **Frontend**: React 19, TypeScript, Tailwind CSS, Motion
-- **3D Interactive Graphics**: Three.js Orbital Canvas with soft blurred celestial rings
-- **Local AI Integration**: Ollama LLM integration architecture (Llama/Mistral)
-- **Mobile Development**: Native iOS Architecture & Swift
-- **Design System**: Atomic UI components engineered in Figma
-- **Competitive Profiles**: LeetCode (@satyajitzzzzz) & Codeforces (@satyajitzzz)
-- **Resume Included**:
-  - `public/Satyajit_Samanta_Resume.pdf` (Printable & Applicant-Ready PDF)
-  - `public/Satyajit_Samanta_Resume.html` (Standalone HTML format)
+5. (Optional) Production build:
+   ```bash
+   npm run build
+   npm start
+   ```
+
+## 🛠️ Tech Stack & Highlights
+- **Full-Stack Core**: Express.js + Vite + TypeScript backend with MongoDB Atlas integration
+- **Sound & Audio FX**: Web Audio API Sound Engine featuring:
+  - Toggle sound effect with smooth reverberant spatial echo
+  - Calming, smooth ambient space synthesizer background music
+  - Sound controls toolbar (Mute, Volume, SFX, Ambient toggles)
+- **Frontend & Animations**: React 19, TypeScript, Tailwind CSS, Motion
+- **3D Celestial Graphics**: Three.js Orbital Canvas with celestial particle field and rings
+- **Local AI & MERN**: Architecture conditioned for Ollama (Llama/Mistral) local models
+- **Mobile Engineering**: Native iOS Architecture & Swift
+- **Design System**: Atomic UI components engineered in Figma (Games 24 storefront)
+- **Competitive Programming**: LeetCode (@satyajitzzzzz, 50+ Solved) & Codeforces (@satyajitzzz, 35+ Solved)
+- **Resume Assets**:
+  - `public/Satyajit_Samanta_Resume.pdf` (Latest single-page applicant-ready PDF)
+  - `public/Satyajit_Samanta_Resume.html` (Standalone responsive HTML resume)
 
 ## 👤 Contact Satyajit Samanta
 - Email: satyajit97531@gmail.com
 - Phone: +91 8076522382
+- Location: Janakpuri, New Delhi, India
 - GitHub: https://github.com/satyajit97531
 - LinkedIn: https://www.linkedin.com/in/satyajit-samanta-07a461385/
 - LeetCode: https://leetcode.com/u/satyajitzzzzz/
