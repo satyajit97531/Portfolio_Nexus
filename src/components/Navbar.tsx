@@ -9,7 +9,6 @@ import {
   GraduationCap,
   Send,
   Search,
-  ExternalLink,
   Menu,
   X,
   Sparkles
@@ -156,19 +155,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
                 ⌘K
               </kbd>
             </button>
-
-            {/* GitHub Profile */}
-            <a
-              id="github-nav-link"
-              href={profileData.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ios-glass-pill px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-mono text-slate-300 hover:text-white flex items-center gap-1.5"
-              title="GitHub Repositories"
-            >
-              <span className="hidden sm:inline">GitHub</span>
-              <ExternalLink className="w-3 h-3 text-slate-400" />
-            </a>
 
             {/* Mobile Hamburger */}
             <button
