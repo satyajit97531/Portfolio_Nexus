@@ -20,10 +20,13 @@ import {
   X,
   ArrowRight,
   Download,
-  Archive
+  Archive,
+  Volume2,
+  Music
 } from 'lucide-react';
 import { profileData, projectsData } from '../data/portfolioData';
 import { triggerResumeDownload, triggerSourceCodeDownload } from '../utils/downloadResume';
+import { audioSystem, playToggleEcho } from '../utils/audioSystem';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -132,6 +135,26 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       action: () => navigateTo('contact')
     },
     // Actions
+    {
+      id: 'act-toggle-sound',
+      label: 'Toggle Master Sound (Enable / Mute Audio)',
+      category: 'Quick Actions',
+      icon: Volume2,
+      action: async () => {
+        onClose();
+        await audioSystem.toggleMasterSound();
+      }
+    },
+    {
+      id: 'act-toggle-space-bgm',
+      label: 'Toggle Outer Space Ambient Music (Calm Cosmic Drone)',
+      category: 'Quick Actions',
+      icon: Music,
+      action: async () => {
+        onClose();
+        await audioSystem.toggleBgm();
+      }
+    },
     {
       id: 'act-resume',
       label: 'Open & View Resume (CV Modal)',

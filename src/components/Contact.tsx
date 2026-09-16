@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
 import { DatabaseBufferModal } from './DatabaseBufferModal';
+import { playToggleEcho } from '../utils/audioSystem';
 
 export const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -294,7 +295,10 @@ export const Contact: React.FC = () => {
                 
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={() => setIsDbModalOpen(true)}
+                    onClick={() => {
+                      playToggleEcho('on');
+                      setIsDbModalOpen(true);
+                    }}
                     type="button"
                     className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-[11px] font-mono text-emerald-300 hover:text-white transition-all shadow-sm"
                     title="Inspect messages in MongoDB Atlas database"
@@ -442,7 +446,10 @@ export const Contact: React.FC = () => {
 
       <DatabaseBufferModal
         isOpen={isDbModalOpen}
-        onClose={() => setIsDbModalOpen(false)}
+        onClose={() => {
+          playToggleEcho('off');
+          setIsDbModalOpen(false);
+        }}
         onMessageDeleted={fetchDbCount}
       />
     </section>

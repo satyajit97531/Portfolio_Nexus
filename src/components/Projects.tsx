@@ -16,6 +16,7 @@ import {
 import { projectsData } from '../data/portfolioData';
 import { Project } from '../types';
 import { ProjectModal } from './ProjectModal';
+import { playToggleEcho } from '../utils/audioSystem';
 
 export const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -60,7 +61,10 @@ export const Projects: React.FC = () => {
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
+                onClick={() => {
+                  playToggleEcho(selectedCategory === cat.id ? 'generic' : 'on');
+                  setSelectedCategory(cat.id);
+                }}
                 className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all duration-200 ${
                   selectedCategory === cat.id
                     ? 'bg-fuchsia-500/25 text-white font-semibold border border-fuchsia-400/40 shadow-[0_0_12px_rgba(217,70,239,0.25)]'
@@ -157,7 +161,10 @@ export const Projects: React.FC = () => {
                 {/* Footer Controls */}
                 <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between gap-2">
                   <button
-                    onClick={() => setActiveProject(project)}
+                    onClick={() => {
+                      playToggleEcho('on');
+                      setActiveProject(project);
+                    }}
                     className="text-xs font-mono text-violet-400 hover:text-violet-300 flex items-center gap-1 font-semibold"
                   >
                     <span>Inspect System</span>
@@ -183,7 +190,10 @@ export const Projects: React.FC = () => {
         {/* System Modal */}
         <ProjectModal
           project={activeProject}
-          onClose={() => setActiveProject(null)}
+          onClose={() => {
+            playToggleEcho('off');
+            setActiveProject(null);
+          }}
         />
 
       </div>

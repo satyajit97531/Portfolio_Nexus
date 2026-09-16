@@ -15,6 +15,8 @@ import {
   Sparkles
 } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
+import { SoundToggle } from './SoundToggle';
+import { playToggleEcho } from '../utils/audioSystem';
 
 interface NavbarProps {
   onOpenCommandPalette: () => void;
@@ -135,10 +137,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
 
           {/* Action Buttons */}
           <div className="flex items-center gap-1.5 sm:gap-2">
+            {/* Sound & Space Ambient Music Toggle */}
+            <SoundToggle />
+
             {/* Command Palette Trigger */}
             <button
               id="cmd-k-btn"
-              onClick={onOpenCommandPalette}
+              onClick={() => {
+                playToggleEcho('generic');
+                onOpenCommandPalette();
+              }}
               className="ios-glass-pill px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-mono text-slate-300 hover:text-white flex items-center gap-1.5"
               title="Search & Command Palette (Cmd+K)"
             >
@@ -165,7 +173,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
             {/* Mobile Hamburger */}
             <button
               id="mobile-nav-toggle-btn"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => {
+                playToggleEcho(mobileMenuOpen ? 'off' : 'on');
+                setMobileMenuOpen(!mobileMenuOpen);
+              }}
               className="xl:hidden ios-glass-pill p-2 rounded-full text-slate-300 hover:text-white"
               aria-label="Toggle Navigation Menu"
             >
@@ -192,7 +203,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
                       <button
                         key={item.id}
                         id={`mobile-nav-${item.id}`}
-                        onClick={() => scrollTo(item.id)}
+                        onClick={() => {
+                          playToggleEcho('generic');
+                          scrollTo(item.id);
+                        }}
                         className={`p-2.5 rounded-xl text-left flex items-center gap-2 border transition-all ${
                           isActive
                             ? 'bg-violet-500/25 border-violet-400/40 text-white font-semibold shadow-[0_0_12px_rgba(168,85,247,0.3)]'
@@ -206,13 +220,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenResu
                   })}
                 </div>
 
-                <div className="pt-2 border-t border-white/[0.08]">
+                <div className="pt-2 border-t border-white/[0.08] flex items-center gap-2">
+                  <div className="shrink-0">
+                    <SoundToggle />
+                  </div>
                   <button
                     onClick={() => {
                       setMobileMenuOpen(false);
+                      playToggleEcho('generic');
                       onOpenCommandPalette();
                     }}
-                    className="w-full py-2.5 px-3 rounded-full bg-violet-600/90 hover:bg-violet-500 text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 shadow-[0_0_12px_rgba(168,85,247,0.3)] transition-all"
+                    className="flex-1 py-2.5 px-3 rounded-full bg-violet-600/90 hover:bg-violet-500 text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 shadow-[0_0_12px_rgba(168,85,247,0.3)] transition-all"
                   >
                     <Search className="w-3.5 h-3.5" />
                     <span>Search & Command Palette (⌘K)</span>

@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { skillsData } from '../data/portfolioData';
 import { Skill } from '../types';
+import { playToggleEcho } from '../utils/audioSystem';
 
 export const Skills: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'all' | 'frontend' | 'backend' | 'aimobile' | 'tools'>('all');
@@ -55,7 +56,10 @@ export const Skills: React.FC = () => {
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setActiveTab(cat.id as any)}
+                onClick={() => {
+                  playToggleEcho(activeTab === cat.id ? 'generic' : 'on');
+                  setActiveTab(cat.id as any);
+                }}
                 className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all duration-200 ${
                   activeTab === cat.id
                     ? 'bg-emerald-500/25 text-white font-semibold border border-emerald-400/40 shadow-[0_0_12px_rgba(16,185,129,0.25)]'
