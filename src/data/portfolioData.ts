@@ -5,7 +5,7 @@ export const profileData: ProfileData = {
   role: "Full-Stack & Systems Engineer",
   tagline: "Building resilient MERN & Next.js systems, localized Ollama AI pipelines, and native iOS experiences",
   location: "Janakpuri / Sagarpur, New Delhi, India",
-  currentCollege: "Delhi Global Institute of Technology (DGIT)",
+  currentCollege: "Maharshi Dayanand University (MDU)",
   university: "Maharshi Dayanand University (MDU)",
   school: "Vinay Nagar Senior Secondary School, New Delhi",
   degree: "B.Tech in Computer Science and Engineering (CSE)",
@@ -18,7 +18,7 @@ export const profileData: ProfileData = {
   github: "https://github.com/satyajit97531",
   linkedin: "https://www.linkedin.com/in/satyajit-samanta-07a461385/",
   leetcode: "https://leetcode.com/u/satyajitzzzzz/",
-  bio: "B.Tech Computer Science student at Delhi Global Institute of Technology (DGIT), affiliated with Maharshi Dayanand University. Specialized in Full-Stack MERN and Next.js development, local AI model integration with Ollama, and native iOS application engineering. Passionate about systems architecture, clean design systems in Figma, and algorithmic problem-solving on LeetCode.",
+  bio: "B.Tech Computer Science student affiliated with Maharshi Dayanand University (MDU). Specialized in Full-Stack MERN and Next.js development, local AI model integration with Ollama, and native iOS application engineering. Passionate about systems architecture, clean design systems in Figma, and algorithmic problem-solving on LeetCode.",
   careerObjective: "Motivated B.Tech Computer Science student with a strong foundation in Full Stack Development (MERN, Next.js), Ollama AI integration, and iOS app development. Seeking an engineering or internship opportunity to build scalable, secure, and user-centric web & mobile solutions."
 };
 
@@ -334,7 +334,7 @@ export const achievementsData: Achievement[] = [
   {
     id: "btech-cse",
     title: "B.Tech Computer Science Academic Foundation",
-    issuer: "Maharshi Dayanand University / DGIT",
+    issuer: "Maharshi Dayanand University (MDU)",
     date: "2023 – 2027",
     badge: "Academic Honor",
     type: "academic",
@@ -342,7 +342,7 @@ export const achievementsData: Achievement[] = [
     credentialId: "Roll No: 23DGITM425",
     skillsCovered: ["Data Structures", "Database Management", "OS Concepts", "Networking", "Software Engineering"],
     details: [
-      "Maintained solid academic standing across 7 semesters at Delhi Global Institute of Technology (DGIT)",
+      "Maintained solid academic standing across 7 semesters under Maharshi Dayanand University (MDU)",
       "Completed foundational coursework in Design & Analysis of Algorithms, DBMS, and Operating Systems",
       "Active participant in technical student engineering forums and software labs"
     ],
@@ -368,9 +368,9 @@ export const achievementsData: Achievement[] = [
 
 export const educationData: EducationItem[] = [
   {
-    institution: "Delhi Global Institute of Technology (DGIT)",
+    institution: "Maharshi Dayanand University (MDU)",
     degree: "Bachelor of Technology (B.Tech) in Computer Science & Engineering",
-    location: "Jhajjar, Haryana / Affiliated with Maharshi Dayanand University (MDU)",
+    location: "Haryana, India",
     period: "2023 – 2027",
     status: "7th Semester (4th Year Undergrad)",
     rollNo: "23DGITM425",

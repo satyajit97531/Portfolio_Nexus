@@ -102,7 +102,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                 B.Tech in Computer Science & Engineering | Full-Stack & iOS Developer
               </div>
               <div className="text-[11px] text-slate-400 font-normal">
-                JANAKPURI, NEW DELHI, INDIA · DELHI GLOBAL INSTITUTE OF TECHNOLOGY (DGIT) · MAHARSHI DAYANAND UNIVERSITY (MDU)
+                JANAKPURI, NEW DELHI, INDIA · MAHARSHI DAYANAND UNIVERSITY (MDU)
               </div>
 
               {/* Contact rows with distinct, visible icons */}
@@ -181,7 +181,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                   <span className="text-xs font-semibold text-slate-200">2023 – 2027 (Ongoing)</span>
                 </div>
                 <div className="text-xs text-slate-400">
-                  Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU), Haryana
+                  Maharshi Dayanand University (MDU), Haryana
                 </div>
                 <ul className="list-disc list-inside text-xs text-slate-300 space-y-0.5 pt-1">
                   <li>Semester: 7th | University Roll No: <strong className="text-slate-200">23DGITM425</strong></li>

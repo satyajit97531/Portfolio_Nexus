@@ -45,7 +45,7 @@ y += 12;
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(8.2);
 doc.setTextColor(...textMuted);
-doc.text('JANAKPURI, NEW DELHI, INDIA · DELHI GLOBAL INSTITUTE OF TECHNOLOGY (DGIT) · MAHARSHI DAYANAND UNIVERSITY (MDU)', pageWidth / 2, y, { align: 'center' });
+doc.text('JANAKPURI, NEW DELHI, INDIA · MAHARSHI DAYANAND UNIVERSITY (MDU)', pageWidth / 2, y, { align: 'center' });
 
 // Thin horizontal rule below institution line
 y += 8;
@@ -222,7 +222,7 @@ y += 11;
 doc.setFont('helvetica', 'italic');
 doc.setFontSize(8.5);
 doc.setTextColor(...textMuted);
-doc.text('Delhi Global Institute of Technology (DGIT) · Maharshi Dayanand University (MDU), Haryana', margin, y);
+doc.text('Maharshi Dayanand University (MDU), Haryana', margin, y);
 
 y += 10.5;
 doc.setFont('helvetica', 'normal');

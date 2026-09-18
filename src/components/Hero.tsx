@@ -76,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal, onOpenCertModal }
             </h1>
             
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed pt-2">
-              B.Tech Computer Science student at <span className="text-white font-medium">Delhi Global Institute of Technology (DGIT)</span>, affiliated with <span className="text-white font-medium">Maharshi Dayanand University</span>. Engineering scalable <span className="text-sky-300 font-medium">MERN stack platforms</span>, on-premise <span className="text-purple-300 font-medium">Ollama AI inference</span>, and <span className="text-amber-300 font-medium">certified native iOS</span> solutions.
+              B.Tech Computer Science student affiliated with <span className="text-white font-medium">Maharshi Dayanand University</span>. Engineering scalable <span className="text-sky-300 font-medium">MERN stack platforms</span>, on-premise <span className="text-purple-300 font-medium">Ollama AI inference</span>, and <span className="text-amber-300 font-medium">certified native iOS</span> solutions.
             </p>
           </div>
 
@@ -207,9 +207,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal, onOpenCertModal }
                   <span className="text-sky-300 font-medium">B.Tech CSE (Sem 7)</span>
                 </div>
                 <div className="flex justify-between border-b border-white/[0.05] pb-1.5">
-                  <span className="text-slate-400">COLLEGE:</span>
-                  <span className="text-slate-200 text-right truncate max-w-[200px]" title={profileData.currentCollege}>
-                    DGIT / MDU
+                  <span className="text-slate-400">UNIVERSITY:</span>
+                  <span className="text-slate-200 text-right truncate max-w-[200px]" title={profileData.university}>
+                    Maharshi Dayanand Univ (MDU)
                   </span>
                 </div>
                 <div className="flex justify-between border-b border-white/[0.05] pb-1.5">
@@ -250,7 +250,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal, onOpenCertModal }
               <div className="pt-2 flex items-center justify-between text-[11px] text-slate-400">
                 <div className="flex items-center gap-1.5 text-emerald-400 font-medium">
                   <ShieldCheck className="w-4 h-4" />
-                  <span>Verified DGIT Roll: {profileData.rollNo}</span>
+                  <span>Verified University Roll: {profileData.rollNo}</span>
                 </div>
                 <button
                   onClick={() => scrollTo('contact')}

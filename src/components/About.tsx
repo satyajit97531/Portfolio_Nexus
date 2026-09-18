@@ -93,7 +93,7 @@ export const About: React.FC<AboutProps> = ({ onOpenCertModal }) => {
                 <div>
                   <h3 className="text-lg font-bold text-white font-display">Satyajit Samanta</h3>
                   <p className="text-xs font-mono text-slate-400">
-                    B.Tech CSE (4th Year / Sem 7) · DGIT / MDU
+                    B.Tech CSE (4th Year / Sem 7) · Maharshi Dayanand University (MDU)
                   </p>
                 </div>
               </div>
@@ -106,14 +106,14 @@ export const About: React.FC<AboutProps> = ({ onOpenCertModal }) => {
                 </p>
                 <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-slate-400">
                   <span>Resume Objective · Roll 23DGITM425</span>
-                  <span className="text-violet-400">DGIT, Haryana</span>
+                  <span className="text-violet-400">MDU, Haryana</span>
                 </div>
               </div>
 
               {/* Bio description */}
               <div className="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
                 <p>
-                  I am a pre-final year Computer Science Engineering undergraduate studying at <strong className="text-white">Delhi Global Institute of Technology (DGIT)</strong> in Jhajjar, Haryana under <strong className="text-white">Maharshi Dayanand University</strong>, living in Janakpuri / Sagarpur, New Delhi.
+                  I am a pre-final year Computer Science Engineering undergraduate studying under <strong className="text-white">Maharshi Dayanand University</strong>, living in Janakpuri / Sagarpur, New Delhi.
                 </p>
                 <p>
                   My engineering journey is driven by practical problem-solving: from architecting the <strong className="text-sky-300">Service Portal Application</strong> with offline Ollama AI assistance to designing the <strong className="text-amber-300">Games 24</strong> digital gaming distribution UI and engineering emergency navigation in <strong className="text-emerald-300">Medi_Map</strong>.
@@ -236,7 +236,7 @@ export const About: React.FC<AboutProps> = ({ onOpenCertModal }) => {
               </div>
               <div className="space-y-1">
                 <h4 className="text-sm font-bold text-white font-display">
-                  Maharshi Dayanand University & DGIT Student
+                  Maharshi Dayanand University (MDU) Student
                 </h4>
                 <p className="text-xs text-slate-300 leading-relaxed">
                   Enrolled in B.Tech CSE (Batch 2023-2027) with deep study in operating systems, algorithms, database normalization, and distributed web services. Schooling foundation from Vinay Nagar Senior Secondary School, New Delhi.

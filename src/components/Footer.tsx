@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
               <span className="text-violet-400 font-mono text-xs">// Portfolio Nexus</span>
             </div>
             <p className="text-xs text-slate-400 max-w-md leading-relaxed font-sans">
-              B.Tech CSE student at Delhi Global Institute of Technology (DGIT / MDU), building resilient MERN stack platforms, on-premise Ollama AI integrations, and native iOS applications.
+              B.Tech CSE student affiliated with Maharshi Dayanand University (MDU), building resilient MERN stack platforms, on-premise Ollama AI integrations, and native iOS applications.
             </p>
             <div className="flex items-center gap-2 text-[11px] text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
@@ -171,7 +171,7 @@ export const Footer: React.FC = () => {
         {/* Telemetry Bar */}
         <div className="pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
           <div className="flex items-center gap-4 flex-wrap">
-            <span>DGIT / MDU CSE Roll: 23DGITM425</span>
+            <span>MDU CSE Roll: 23DGITM425</span>
             <span>·</span>
             <span>Location: Janakpuri, New Delhi</span>
             <span>·</span>

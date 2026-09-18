@@ -122,7 +122,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     },
     {
       id: 'sec-education',
-      label: 'Academic Foundation (DGIT / MDU CSE)',
+      label: 'Academic Foundation (MDU CSE)',
       category: 'Navigation',
       icon: GraduationCap,
       action: () => navigateTo('education')
